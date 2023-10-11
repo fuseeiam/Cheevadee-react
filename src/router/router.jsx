@@ -1,38 +1,33 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import LoginPage from "../pages/LoginPage";
+import LoginPage from "../page/LoginPage";
 import Layout from "../Layout/Layout";
-import HomePage from "../pages/HomePage";
-import FriendPage from "../pages/FriendPage";
-import RedirectIfAuthenticated from "../feature/auth/RedirectIfAuthenticated";
-import ProfilePage from "../pages/ProfilePage";
-import Authenticated from "../feature/auth/Authenticated";
+import HomePage from "../page/HomePage";
+
+// import RedirectIfAuthenticated from "../feature/auth/RedirectIfAuthenticated";
+
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: (
-            <Authenticated>
-                <Layout />
-            </Authenticated>
+            <Layout />
         ),
         children: [
-            { path: '', element: <HomePage /> },
-            { path: 'room', element: <Room /> },
-            { path: 'room/:roomDetail', element: <RoomDetail /> },
-            { path: 'booking', element: <Booking /> },
-            { path: 'booking/:reserve', element: <BookingReserve /> },
-            { path: 'booking/:payment', element: <Payment /> }
+            { path: '/', element: <HomePage /> },
+            // { path: 'room', element: <Room /> },
+            // { path: 'room/:roomType', element: <RoomType /> },
+            // { path: 'booking', element: <Booking /> },
+            // { path: 'booking/:reserve', element: <BookingReserve /> },
+            // { path: 'booking/:reserve/payment', element: <BookingPayment /> },
+            // { path: 'booking/:reserve/payment/mybooking', element: <MyBooking /> }
         ]
     },
     {
         path: '/login',
         element: (
-            <RedirectIfAuthenticated>
-                <LoginPage />
-            </RedirectIfAuthenticated>
+            <LoginPage />
         )
     }
-
 ]);
 
 export default function Route() {

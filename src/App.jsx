@@ -1,8 +1,11 @@
-import Router from "./"
+import Route from "./router/router";
 
 function App() {
+
   return (
-    <Router />
+    <>
+      <Route />
+    </>
   )
 }
 
