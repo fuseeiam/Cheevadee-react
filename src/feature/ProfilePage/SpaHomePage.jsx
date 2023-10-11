@@ -1,0 +1,23 @@
+
+export default function SpaHomePage() {
+    return (
+        <div className="bg-[#21395D]">
+            <div className=" p-10 flex justify-center">
+                <h1 className="text-white text-4xl">DEE SPA</h1>
+            </div>
+            <div className=" p-10 flex justify-center">
+                <img src="/src/assets/hotel-5.png" alt="" />
+            </div>
+            <div className="p-5 flex justify-center">
+                <div>
+                    <span className="text-white text-xl ">
+                        Have a day of relaxation in the busy city of Chiang Mai and spend a couple of hours at Dee Spa.
+                    </span>
+                </div>
+            </div>
+            <div className=" p-5 flex justify-center">
+                <h1 className="text-[#C18638] text-xl ">DISCOVER MORE</h1>
+            </div>
+        </div>
+    )
+}
