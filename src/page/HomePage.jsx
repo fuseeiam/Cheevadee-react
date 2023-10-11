@@ -1,38 +1,43 @@
+import TravelDate from "../feature/Booking/TravelDate";
+
 export default function HomePage() {
     return (
         <>
-            <div>
+            <div className="bg-[#21395D]">
                 <img src="/src/assets/hotel-1.jpeg" alt="" className="w-screen h-screen" />
             </div>
-            <div className="bg-[#E2E2E2] w-full h-12">
+            <div>
+                <TravelDate />
+            </div>
+            <div className="bg-[#21395D] flex justify-center p-20 ">
+                <div className="w-[1110px] h-[740px] object-cover overflow-hidden ">
+                    <img src="/src/assets/hotel-2.png" alt="" className=" w-full" />
+                </div>
+            </div>
+            <div className="bg-[#21395D] px-20 py-20 flex gap-20">
                 <div>
-                    <div className="text-[#63635D] text-light">
-                        Travel Date
+                    <img src="/src/assets/hotel-3.png" alt="" className=" w-[700px] h-[700px]" />
+                </div>
+                <div className=" w-1/2 ">
+                    <div>
+                        <h1 className="text-[#C18638] text-4xl">
+                            Welcome to Cheeva Dee Hotel
+                            located within the heart of
+                            the Old City of Chiang Mai.
+                        </h1>
                     </div>
-                    <div className="text-[#63635D] text-light">
-                        <div>
-                            <div>
-                                ARRIVAL
-                            </div>
-                            <div>
-                                DEPARTURE
-                            </div>
-                            <div>
-                                ROOM(S)
-                            </div>
-                            <div>
-                                ADULT(S)
-                            </div>
-                            <div>
-                                CHILD(REN)
-                            </div>
-                        </div>
-                        <div>
 
-                        </div>
+                    <div className="mt-6">
+                        <span className="text-white text-xl">
+                            In addition to the standard of SHA, all guests get free Wi-Fi in all rooms and free parking if arriving by car.
+                            Strategically situated in Old City, allowing you access and proximity to local attractions and sights.
+                            Don't leave before paying a visit to the famous Wat Chedi Luang. Rated with 4 stars,this high-quality property provides guests with access to indoor pool and outdoor pool on-site.
+                        </span>
                     </div>
                 </div>
             </div>
+
+
         </>
     )
 }
