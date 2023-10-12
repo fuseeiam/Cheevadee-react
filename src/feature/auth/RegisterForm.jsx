@@ -117,7 +117,7 @@ export default function RegisterForm() {
             {error.confirmPassword && <InputErrorMessage message={error.confirmPassword} />}
         </div>
         <div className="mx-auto col-span-full">
-            <button className="bg-[#C18638] rounded-lg text-white px-3 py-1.5 font-light min-w-[10rem]">
+            <button className="bg-[#C18638] hover:bg-[#BD7416] rounded-lg text-white px-3 py-1.5 font-light min-w-[10rem]">
                 Sign up
             </button>
         </div>

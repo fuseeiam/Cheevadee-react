@@ -3,7 +3,7 @@ import BookingButton from "../feature/Booking/BookingButton";
 import { Link } from "react-router-dom";
 
 export default function Header() {
-    return <header className="fixed w-screen flex justify-between text-light px-20 py-5 bg-[#21395D]">
+    return <header className="fixed w-screen flex justify-between text-light px-40 py-5 bg-[#21395D]">
         <Link to="/">
             <div className="flex gap-2">
                 <div className="h-11 w-11 py-1">

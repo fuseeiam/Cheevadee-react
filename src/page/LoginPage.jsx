@@ -1,6 +1,7 @@
 import LoginContent from "../feature/auth/LoginContent";
 import LoginForm from "../feature/auth/LoginForm";
 import RegisterContainer from "../feature/auth/RegisterContainer";
+import { Link } from "react-router-dom";
 
 
 export default function LoginPage() {

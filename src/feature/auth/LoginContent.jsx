@@ -12,9 +12,6 @@ export default function LoginContent() {
             </div>
             <Link to="/">
                 <LogoHomePage />
-                {/* <h2 className="text-4xl font-light text-center">
-                    CHEEVA DEE HOTEL
-                </h2> */}
             </Link>
 
         </div>

@@ -3,6 +3,7 @@ import ProfileHomPage from "../feature/ProfilePage/ProfileHomPage";
 import RoomHomePage from "../feature/ProfilePage/RoomHomePage";
 import SpaHomePage from "../feature/ProfilePage/SpaHomePage";
 import DiningHomePage from "../feature/ProfilePage/DiningHomePage";
+import FootingPage from "../feature/ProfilePage/footingPage";
 
 export default function HomePage() {
     return (
@@ -33,6 +34,11 @@ export default function HomePage() {
             {/* dining */}
             <div>
                 <DiningHomePage />
+            </div>
+
+            {/* footing */}
+            <div>
+                <FootingPage />
             </div>
 
         </>

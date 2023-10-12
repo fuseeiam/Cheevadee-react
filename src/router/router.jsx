@@ -2,6 +2,10 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import LoginPage from "../page/LoginPage";
 import Layout from "../Layout/Layout";
 import HomePage from "../page/HomePage";
+import RoomPage from "../page/RoomPage";
+import RoomTypePage from "../page/RoomTypePage";
+import BookingPage from "../page/BookingPage";
+import DiningPage from "../page/DiningPage";
 
 // import RedirectIfAuthenticated from "../feature/auth/RedirectIfAuthenticated";
 
@@ -14,12 +18,13 @@ const router = createBrowserRouter([
         ),
         children: [
             { path: '/', element: <HomePage /> },
-            // { path: 'room', element: <Room /> },
-            // { path: 'room/:roomType', element: <RoomType /> },
-            // { path: 'booking', element: <Booking /> },
+            { path: 'room', element: <RoomPage /> },
+            { path: 'room/:roomType', element: <RoomTypePage /> },
+            { path: 'booking', element: <BookingPage /> },
             // { path: 'booking/:reserve', element: <BookingReserve /> },
             // { path: 'booking/:reserve/payment', element: <BookingPayment /> },
             // { path: 'booking/:reserve/payment/mybooking', element: <MyBooking /> }
+            { path: 'dining', element: <DiningPage /> },
         ]
     },
     {
