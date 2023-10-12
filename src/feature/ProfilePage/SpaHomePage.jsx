@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 export default function SpaHomePage() {
     return (
@@ -15,9 +16,11 @@ export default function SpaHomePage() {
                     </span>
                 </div>
             </div>
-            <div className=" p-5 flex justify-center">
-                <h1 className="text-[#C18638] text-xl font-light hover:underline">DISCOVER MORE</h1>
-            </div>
+            <Link to="spa">
+                <div className=" p-5 flex justify-center">
+                    <h1 className="text-[#C18638] text-xl font-light hover:underline">DISCOVER MORE</h1>
+                </div>
+            </Link>
         </div>
     )
 }
