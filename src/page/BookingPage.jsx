@@ -1,15 +1,24 @@
-import FootingPage from "../feature/ProfilePage/footingPage"
-import Header from "../Layout/Header"
-import { Link } from "react-router-dom";
+import FootingPage from "../feature/ProfilePage/footingPage";
+import BookingContainer from "../feature/Booking/BookingContainer";
+// import BookingHeader from "../Layout/BookingHeader";
+// import { Link } from "react-router-dom";
 
 export default function BookingPage() {
     return (
         <div>
+            {/* Booking Header */}
             <div>
-                <Header />
+                {/* <BookingHeader /> */}
             </div>
-            <div>
-                Booking
+
+            {/* Traval Date Booking */}
+            <div >
+
+
+                {/* Booking container */}
+                <div>
+                    < BookingContainer />
+                </div>
             </div>
 
             <div>

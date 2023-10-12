@@ -1,4 +1,5 @@
 import CheckAvailableButton from "../../feature/Booking/CheckAvailableButton";
+import { Link } from "react-router-dom";
 
 export default function TravelDate() {
     return (
@@ -58,9 +59,11 @@ export default function TravelDate() {
                                 <input type="text" className="rounded-md p-2" />
                             </div> */}
                         </div>
-                        <div className="px-20 py-2.5">
-                            <CheckAvailableButton />
-                        </div>
+                        <Link to="booking">
+                            <div className="px-20 py-2.5">
+                                <CheckAvailableButton />
+                            </div>
+                        </Link>
                     </div>
                 </div>
             </div>
