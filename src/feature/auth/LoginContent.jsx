@@ -1,19 +1,18 @@
 import { Link } from "react-router-dom";
-import LogoHomePage from "../ProfilePage/LogoHomePage"
+import LogoHomePage from "../ProfilePage/LogoHomePage";
+
 export default function LoginContent() {
+
     return (
         <div>
-            <div>
-                <img
-                    src="/src/assets/Logo1.png"
-                    className="h-[500px] w-[500px]"
-                    alt="Cheevadeehotel-logo"
-                />
-            </div>
+            <img
+                src="/src/assets/Logo1.png"
+                className="h-[300px] w-[300px]"
+                alt="Cheevadeehotel-logo"
+            />
             <Link to="/">
                 <LogoHomePage />
             </Link>
-
         </div>
     );
 }

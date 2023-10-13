@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-export default function Bookingdate() {
+export default function BookingDate() {
     return (
         <div>
             <div className="bg-[#21395D] w-full h-60">

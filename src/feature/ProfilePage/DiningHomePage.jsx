@@ -5,6 +5,10 @@ export default function DiningHomePage() {
         <div>
             {/* dining */}
             <div className="bg-[#21395D]">
+                <div className="bg-[#21395D]">
+                    <div className=" p-10 flex justify-center">
+                    </div>
+                </div>
 
                 {/* food */}
                 <div className=" p-10 flex justify-center">
@@ -57,7 +61,7 @@ export default function DiningHomePage() {
                 </div>
             </div>
             <div className="bg-[#21395D]">
-                <div className=" p-10 flex justify-center">
+                <div className=" p-20 flex justify-center">
 
                 </div>
             </div>

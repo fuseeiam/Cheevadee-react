@@ -2,6 +2,10 @@
 export default function RoomHomePage() {
     return (
         <div className="bg-[#21395D]">
+            <div className="bg-[#21395D]">
+                <div className=" p-10 flex justify-center">
+                </div>
+            </div>
             <div className=" p-10 flex justify-center">
                 <h1 className="text-white text-4xl font-light">ACCOMMODATION</h1>
             </div>

@@ -3,6 +3,10 @@ import { Link } from "react-router-dom"
 export default function SpaHomePage() {
     return (
         <div className="bg-[#21395D]">
+            <div className="bg-[#21395D]">
+                <div className=" p-10 flex justify-center">
+                </div>
+            </div>
             <div className=" p-10 flex justify-center">
                 <h1 className="text-white text-4xl font-light">DEE SPA</h1>
             </div>
