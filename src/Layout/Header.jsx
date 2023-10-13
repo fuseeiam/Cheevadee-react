@@ -19,7 +19,9 @@ export default function Header() {
                 <LoginHeader />
             </Link>
 
-            <BookingButton />
+            <Link to="booking">
+                <BookingButton />
+            </Link>
         </div>
 
     </header>

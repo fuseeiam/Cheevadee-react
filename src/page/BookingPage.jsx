@@ -1,7 +1,8 @@
 import FootingPage from "../feature/ProfilePage/footingPage";
 import BookingContainer from "../feature/Booking/BookingContainer";
 // import BookingHeader from "../Layout/BookingHeader";
-// import { Link } from "react-router-dom";
+import Bookingdate from "../feature/Booking/Bookingdate";
+import { Link } from "react-router-dom";
 
 export default function BookingPage() {
     return (
@@ -12,9 +13,11 @@ export default function BookingPage() {
             </div>
 
             {/* Traval Date Booking */}
+            <div>
+                <Bookingdate />
+            </div>
+
             <div >
-
-
                 {/* Booking container */}
                 <div>
                     < BookingContainer />
