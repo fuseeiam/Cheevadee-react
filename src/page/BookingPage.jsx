@@ -1,5 +1,5 @@
 // import BookingHeader from "../Layout/BookingHeader";
-import BookingDate from "../feature/Booking/Bookingdate";
+import BookingDateRates from "../feature/Booking/BookingDateRates";
 import BookingContainer from "../feature/Booking/BookingContainer";
 import FootingPage from "../feature/ProfilePage/footingPage";
 import { useEffect } from "react";
@@ -13,8 +13,8 @@ export default function BookingPage() {
         <div>
             {/* <BookingHeader /> */}
 
-            <BookingDate />
-            < BookingContainer />
+            <BookingDateRates />
+            <BookingContainer />
             <FootingPage />
         </div>
     )

@@ -1,8 +1,13 @@
 import { Link } from "react-router-dom"
 
-export default function BookingDate() {
+
+export default function BookingDateRate() {
     return (
         <div>
+            <div className="bg-[#21395D]">
+                <div className=" p-10 flex justify-center">
+                </div>
+            </div>
             <div className="bg-[#21395D] w-full h-60">
                 <div>
                     <div className="text-white text-2xl flex gap-10 py-12 mx-40">
@@ -60,7 +65,7 @@ export default function BookingDate() {
                         </div>
                         <Link to="booking/:reserve">
                             <div className=" py-3.5 ">
-                                <button className="bg-[#C18638] hover:bg-[#BD7416] text-white font-li w-200 h-15 px-3 py-3.5 rounded-md ">
+                                <button className="bg-[#C18638] hover:bg-[#BD7416] text-white font-li w-200 h-15 mt-1 px-10 py-3 rounded-md ">
                                     SEARCH
                                 </button>
                             </div>
@@ -68,6 +73,25 @@ export default function BookingDate() {
                     </div>
                 </div>
             </div>
+
+            <div className="bg-[#21395D] ">
+                <div className=" bg-[#21395D] flex justify-start mx-40 gap-5">
+                    <div className="flex">
+                        <span className="text-2xl text-light  text-white mt-1.5">
+                            Show by
+                        </span>
+                    </div>
+                    <div className="flex">
+                        <button className="bg-white hover:bg-[#E2E2E2] text-[#63635D] text-xl font-li w-200 h-15 px-10 py-2.5">
+                            ROOMS
+                        </button>
+                        <button className="bg-[#C18638] hover:bg-[#BD7416] text-xl text-white font-li w-200 h-15 px-10 py-2.5 ">
+                            RATES
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
+
     )
 }

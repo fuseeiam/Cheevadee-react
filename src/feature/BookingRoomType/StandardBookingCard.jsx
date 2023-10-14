@@ -1,6 +1,8 @@
 import React from 'react'
+import { useState } from 'react';
 
 export default function StandardBookingCard() {
+  // const [isOpen, setIsOpen] = useState(false);
   return (
     <div>
       {/* standard twin bed */}
@@ -39,7 +41,14 @@ export default function StandardBookingCard() {
                 <h2 className="text-[#63635D]  px-2.5 py-0.5 font-light">Street view</h2>
               </div>
               <div className="flex py-1">
-                <h2 className="text-[#C18638] hover:text-[#BD7416] hover:underline py-0.5 font-light">room details & photos</h2>
+                <h2 className="text-[#C18638] hover:text-[#BD7416] hover:underline py-0.5 font-light"
+                //onClick={() => setIsOpen(true)}
+                >
+                  room details & photos
+                </h2>
+                {/* <ModalRoomDetail title="room details & photos" open={isOpen} onClose={() => setIsOpen(false)}>
+                  <RoomDetailT1 />
+                </ModalRoomDetail> */}
               </div>
             </div>
 
