@@ -5,8 +5,7 @@ export default function JuniorSuiteBookingCard() {
         <div> {/* Suite king bed */}
             <div>
                 <div className="bg-[#21395D] flex justify-center px-40 py-10">
-                    <div className="bg-white w-full rounded-md p-5 outline-none border border-gray-300 focus:right-2
- focus:ring-[#C18638] focus:border-[#BD7416 flex ">
+                    <div className="bg-white w-full rounded-md p-5 outline-none border border-gray-300 flex ">
                         <div className="flex flex-col items-start">
                             <div>
                                 <h1 className="flex justify-start text-2xl font-light">JUNIOR SUITE</h1>

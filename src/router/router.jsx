@@ -7,6 +7,7 @@ import RoomTypePage from "../page/RoomTypePage";
 import BookingPage from "../page/BookingPage";
 import DiningPage from "../page/DiningPage";
 import SpaPage from "../page/SpaPage";
+import PaymentPage from "../page/PaymentPage";
 
 // import RedirectIfAuthenticated from "../feature/auth/RedirectIfAuthenticated";
 
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
             { path: 'room', element: <RoomPage /> },
             { path: 'room/:roomType', element: <RoomTypePage /> },
             { path: 'booking', element: <BookingPage /> },
-            // { path: 'booking/:reserve', element: <BookingReserve /> },
+            { path: 'booking/:reserve', element: <PaymentPage /> },
             // { path: 'booking/:reserve/payment', element: <BookingPayment /> },
             // { path: 'booking/:reserve/payment/mybooking', element: <MyBooking /> }
             { path: 'dining', element: <DiningPage /> },

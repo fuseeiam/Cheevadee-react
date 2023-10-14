@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
 export default function StandardBookingCard() {
@@ -8,8 +9,7 @@ export default function StandardBookingCard() {
       {/* standard twin bed */}
       <div>
         <div className="bg-[#21395D] flex justify-center px-40 py-10">
-          <div className="bg-white w-full rounded-md p-5 outline-none border border-gray-300 focus:right-2
-         focus:ring-[#C18638] focus:border-[#BD7416 flex ">
+          <div className="bg-white w-full rounded-md p-5 outline-none border border-gray-300 flex ">
             <div className="flex flex-col items-start">
               <div>
                 <h1 className="flex justify-start text-2xl font-light">STANDRAD ROOM  - No Window</h1>
@@ -100,9 +100,11 @@ export default function StandardBookingCard() {
                       <span>tax & fees included</span>
                     </div>
                   </div>
-                  <button className="bg-[#C18638] hover:bg-[#BD7416] text-white text-xl py-2.5 px-10 rounded-md text-center font-li">
-                    RESERVE
-                  </button>
+                  <Link to=":reserve">
+                    <button className="bg-[#C18638] hover:bg-[#BD7416] text-white text-xl py-2.5 px-10 rounded-md text-center font-li">
+                      RESERVE
+                    </button>
+                  </Link>
                 </div>
                 <hr className="border-bg-[#63635D] mt-2.5 mr-2" />
                 <div className="flex flex-col mt-5 text-sm font-light">
@@ -119,8 +121,7 @@ export default function StandardBookingCard() {
       {/* standard king bed */}
       <div>
         <div className="bg-[#21395D] flex justify-center px-40 py-10">
-          <div className="bg-white w-full rounded-md p-5 outline-none border border-gray-300 focus:right-2
-         focus:ring-[#C18638] focus:border-[#BD7416 flex ">
+          <div className="bg-white w-full rounded-md p-5 outline-none border border-gray-300 flex ">
             <div className="flex flex-col items-start">
               <div>
                 <h1 className="flex justify-start text-2xl font-light">STANDRAD ROOM  - No Window</h1>
@@ -222,8 +223,7 @@ export default function StandardBookingCard() {
       {/* standard balcony king bed */}
       <div>
         <div className="bg-[#21395D] flex justify-center px-40 py-10">
-          <div className="bg-white w-full rounded-md p-5 outline-none border border-gray-300 focus:right-2
-         focus:ring-[#C18638] focus:border-[#BD7416 flex ">
+          <div className="bg-white w-full rounded-md p-5 outline-none border border-gray-300 flex ">
             <div className="flex flex-col items-start">
               <div>
                 <h1 className="flex justify-start text-2xl font-light">STANDRAD ROOM  - With Balcony</h1>
