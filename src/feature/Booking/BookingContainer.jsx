@@ -10,6 +10,8 @@ export default function BookingContainer() {
             <SuperiorBookingCard />
             <DeluxeBookingCard />
             <JuniorSuiteBookingCard />
+            <div className="bg-[#21395D] py-20 ">
+            </div>
         </div>
     )
 }

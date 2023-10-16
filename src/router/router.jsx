@@ -10,6 +10,7 @@ import SpaPage from "../page/SpaPage";
 import PaymentPage from "../page/PaymentPage";
 // import BookingPayment from "../page/BookingPayment";
 import MyBooking from "../page/MyBooking";
+import MyBookingInfo from "../page/MyBookingInfo";
 
 // import RedirectIfAuthenticated from "../feature/auth/RedirectIfAuthenticated";
 
@@ -26,8 +27,15 @@ const router = createBrowserRouter([
             { path: 'room/:roomType', element: <RoomTypePage /> },
             { path: 'booking', element: <BookingPage /> },
             { path: 'booking/:reserve', element: <PaymentPage /> },
+
+            { path: 'booking/:reserve/booking', element: <BookingPage /> },
+            { path: 'booking/:reserve/mybooking/:reserve', element: <PaymentPage /> },
+
             // { path: 'booking/:reserve/bookingPayment', element: <BookingPayment /> },
-            { path: 'account/mybooking', element: <MyBooking /> },
+            { path: 'booking/:reserve/mybooking', element: <MyBooking /> },
+            { path: 'booking/:reserve/mybooking/bookingInfo', element: <MyBookingInfo /> },
+
+
             { path: 'dining', element: <DiningPage /> },
             { path: 'spa', element: <SpaPage /> },
         ]
@@ -38,7 +46,7 @@ const router = createBrowserRouter([
             <LoginPage />
         ), children: [
             { path: 'account', element: <HomePage /> },
-            { path: 'account/mybooking', element: <MyBooking /> },
+            { path: 'account/:mybooking', element: <MyBooking /> },
         ]
     }
 ]);
