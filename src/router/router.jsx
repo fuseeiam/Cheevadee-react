@@ -10,7 +10,7 @@ import SpaPage from "../page/SpaPage";
 import PaymentPage from "../page/PaymentPage";
 // import BookingPayment from "../page/BookingPayment";
 import MyBooking from "../page/MyBooking";
-import MyBookingInfo from "../page/MyBookingInfo";
+// import MyBookingInfo from "../page/MyBookingInfo";
 
 // import RedirectIfAuthenticated from "../feature/auth/RedirectIfAuthenticated";
 
@@ -33,7 +33,7 @@ const router = createBrowserRouter([
 
             // { path: 'booking/:reserve/bookingPayment', element: <BookingPayment /> },
             { path: 'booking/:reserve/mybooking', element: <MyBooking /> },
-            { path: 'booking/:reserve/mybooking/bookingInfo', element: <MyBookingInfo /> },
+            // { path: 'booking/:reserve/mybooking/:bookingInfo', element: <MyBookingInfo /> },
 
 
             { path: 'dining', element: <DiningPage /> },
