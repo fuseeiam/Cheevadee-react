@@ -101,7 +101,7 @@ export default function StandardBookingCard() {
                     </div>
                   </div>
                   <Link to=":reserve">
-                    <button className="bg-[#C18638] hover:bg-[#BD7416] text-white text-xl py-2.5 px-10 rounded-md text-center font-li">
+                    <button className="bg-[#C18638] hover:bg-[#BD7416] text-white text-xl py-4 px-10 rounded-md text-center font-li">
                       RESERVE
                     </button>
                   </Link>
@@ -204,9 +204,11 @@ export default function StandardBookingCard() {
                       <span>tax & fees included</span>
                     </div>
                   </div>
-                  <button className="bg-[#C18638] hover:bg-[#BD7416] text-white text-xl py-2.5 px-10 rounded-md text-center font-li">
-                    RESERVE
-                  </button>
+                  <Link to=":reserve">
+                    <button className="bg-[#C18638] hover:bg-[#BD7416] text-white text-xl py-4 px-10 rounded-md text-center font-li">
+                      RESERVE
+                    </button>
+                  </Link>
                 </div>
                 <hr className="border-bg-[#63635D] mt-2.5 mr-2" />
                 <div className="flex flex-col mt-5 text-sm font-light">
@@ -307,9 +309,11 @@ export default function StandardBookingCard() {
                       <span>tax & fees included</span>
                     </div>
                   </div>
-                  <button className="bg-[#C18638] hover:bg-[#BD7416] text-white text-xl py-2.5 px-10 rounded-md text-center font-li">
-                    RESERVE
-                  </button>
+                  <Link to=":reserve">
+                    <button className="bg-[#C18638] hover:bg-[#BD7416] text-white text-xl py-4 px-10 rounded-md text-center font-li">
+                      RESERVE
+                    </button>
+                  </Link>
                 </div>
                 <hr className="border-bg-[#63635D] mt-2.5 mr-2" />
                 <div className="flex flex-col mt-5 text-sm font-light">

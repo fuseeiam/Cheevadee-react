@@ -13,9 +13,9 @@ export default function RoomHomePage() {
                 <div className="flex justify-center">
                     <img src="/src/assets/hotel-4.png" alt="" />
                 </div>
-                <div className=" p-5 flex justify-center">
+                {/* <div className=" p-5 flex justify-center">
                     <h1 className="text-[#C18638] text-xl font-light">SUPERIOR ROOM</h1>
-                </div>
+                </div> */}
             </div>
 
             <div className=" p-5 flex justify-center">

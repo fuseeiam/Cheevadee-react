@@ -4,6 +4,9 @@ import { useState } from "react";
 import PaymentInput from "../feature/Payments/PaymentInput";
 import CreditInput from "../feature/Payments/CreditInput";
 import { useAuth } from "../hooks/use-auth";
+import { useEffect } from "react";
+import { scrollToTop } from "../utils/scrollToTop";
+import MyBooking from "./MyBooking";
 
 
 export default function PaymentPage() {
@@ -23,6 +26,10 @@ export default function PaymentPage() {
             toast.error(err.response.data.message)
         })
     };
+
+    useEffect(() => {
+        scrollToTop()
+    }, [])
 
     return (
         <div>
@@ -64,7 +71,7 @@ export default function PaymentPage() {
 
                 {/* Enter your details */}
                 <div className="bg-[#21395D] flex justify-center px-40 py-10 gap-10">
-                    <div className="bg-white w-full  h-[1500px] rounded-md p-5 outline-none border border-gray-300 flex ">
+                    <div className="bg-white w-full  h-[2080px] rounded-md p-5 outline-none border border-gray-300 flex ">
                         <div className="flex flex-col">
                             <div>
                                 <div className="flex flex-col p-5">
@@ -77,7 +84,7 @@ export default function PaymentPage() {
 
                                         <div className="flex gap-5 p-5">
                                             <div className="flex flex-col">
-                                                <div className="text-2xl font-semibold">Fist name</div>
+                                                <div className="text-2xl font-semibold">First name</div>
                                                 <PaymentInput
                                                     placeholder=" "
                                                     value={input.firstName}
@@ -207,11 +214,87 @@ export default function PaymentPage() {
                                 </div>
 
                             </div>
+
+                            {/* Optional information */}
+                            <div className="flex flex-col p-5">
+                                <div className="flex flex-col">
+                                    <div className="text-4xl font-li py-3">Your special request</div>
+                                    <PaymentInput
+                                        placeholder="eg. bed preference, pick-up or drop-off location"
+                                        value={input.specialRequest}
+                                        onchange={e => setInput({ ...input, specialRequest: e.target.value })}
+                                    />
+                                </div>
+                                <div className="text-[#BD7416] text-xl font-li py-3">* Special request is not guaranteed. Your request will be taken care where possible.</div>
+                            </div>
+
+                            {/* Terms and Conditions of Booking */}
+                            <div className="flex flex-col p-5">
+                                <div className="text-4xl font-li">Terms and Conditions of Booking</div>
+
+                                <div className="text-xl font-li p-5">
+                                    <h1 className="text-2xl font-semibold py2.5"> General Terms & Conditions</h1>
+                                    <li>All reservations must be guaranteed with a valid credit card.</li>
+                                    <li>"Non-Refundable" and "All Special Packages", advanced full payment will be charged at time of reservation, No cancellation and Non-Refundable.</li>
+                                    <li>"Best Rate Available" free cancellation window, cancellation policy and cancellation penalty are depend on Seasonal.</li>
+                                    <li>All No show and Early Departure 100 percent of total amount will be charged. Will result in a penalty of the total amount of the full length of stay of the booking.</li>
+                                    <li>We reserve the right to cancel or modify reservations where it appears that a guest has engaged in fraudulent, inappropriate activity, or under other circumstances where it appears that the reservations contain or resulted from a mistake or error.</li>
+                                    <li>Amendment or Cancellation must be made in written notice to provided email or contact form in the website.</li>
+                                    <li>Rates are charged in Thai Baht currency. Therefore, the amount shown on monthly statement in other currencies sent to you by the respective credit card company might be slightly different from our quoted price due to exchange rate variations.</li>
+                                </div>
+
+
+                                <div className="flex flex-col text-xl font-li p-5">
+                                    <h1 className="text-2xl font-semibold py2.5 ">Extra Person</h1>
+                                    <div className=" flex flex-col px-20">
+                                        <span>Adult : Compulsory charge at 2,200 THB / night provided with extra bed and breakfast.</span>
+                                        <span>Child : Age 0 - 3 years old is free of charge (share bed with parent)</span>
+                                        <span>Child : Age 4 – 11 years old compulsory charge at 1,100 THB / night provided with extra bed and breakfast.</span>
+                                        <span> Child over 12 years old consider to be adult. </span>
+                                    </div>
+                                    <span className="font-semibold">***One Bedroom Emperor Suite does not allow children aged below 12 years to stay in. </span>
+                                </div>
+
+                                <div className="flex flex-col justify-start text-xl font-li p-5">
+                                    <div className="text-2xl font-semibold py2.5 ">Hotel Policy</div>
+                                    <div className="flex gap-10">
+                                        <div className="text-xl font-semibold">
+                                            <h2>Check-in time:</h2>
+                                            <h2>Check-out time:</h2>
+                                            <h2>Pet policy:</h2>
+                                            <h2>Smoking policy:</h2>
+                                        </div>
+                                        <div className="flex flex-col">
+                                            <span>14:00 Hrs.</span>
+                                            <span>12:00 Hrs.</span>
+                                            <span>Pets are not allowed.</span>
+                                            <span>Smoking is not allowed in the hotel.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="flex px-10 gap-3">
+                                <div className="py-1">
+                                    <button className=" bg-[#E2E2E2] hover:bg-[#BD7416] w-[20px] h-[20px] rounded-sm"></button>
+                                </div>
+                                <div className="text-xl font-li ">
+                                    <h2>I have read and agreed to the
+                                        <span className="text-[#C18638]"> Terms & Conditions</span>
+                                    </h2>
+                                </div>
+                            </div>
+
+                            {/* make a booking */}
+                            <Link to="myBooking">
+                                <div className="flex justify-end px-10">
+                                    <button className="bg-[#C18638] hover:bg-[#BD7416] text-white text-xl px-5 py-3 w-80 rounded-md text-center font-li ">
+                                        MAKE A BOOKING
+                                    </button>
+                                </div>
+                            </Link>
                         </div>
-
                     </div>
-
-
 
 
                     {/* Reservation Summary */}
@@ -277,7 +360,7 @@ export default function PaymentPage() {
                                     <div className="flex flex-col items-end  ">
                                         <div className="flex gap-2">
                                             <span className="text-2xl font-semibold py-2">THB</span>
-                                            <span className="text-4xl font-bold ">2,450</span>
+                                            <span className="text-4xl font-bold ">4,900</span>
                                         </div>
                                         <span className="text-xl font-li">including all taxes and service charge</span>
                                     </div>
@@ -289,7 +372,7 @@ export default function PaymentPage() {
                                 <span>Pay now</span>
                                 <div className="flex gap-2">
                                     <span>THB</span>
-                                    <span>2,450</span>
+                                    <span>4,900</span>
                                 </div>
                             </div>
                             <hr />
@@ -302,6 +385,11 @@ export default function PaymentPage() {
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div className="bg-[#21395D]">
+                <div className=" p-20 flex justify-center">
                 </div>
             </div>
         </div>
