@@ -1,8 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import FootingPage from '../feature/ProfilePage/footingPage';
+import { useEffect } from "react";
+import { scrollToTop } from "../utils/scrollToTop";
+
 
 export default function MyBooking() {
+    useEffect(() => {
+        scrollToTop()
+    }, [])
+
     return (
         <div>
 
@@ -121,6 +128,8 @@ export default function MyBooking() {
             </div>
             {/* </Link> */}
 
+            <div className="bg-[#E2E2E2] p-20">
+            </div>
             <div className="bg-[#E2E2E2] p-40">
             </div>
 

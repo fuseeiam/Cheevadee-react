@@ -276,7 +276,7 @@ export default function PaymentPage() {
 
                             <div className="flex px-10 gap-3">
                                 <div className="py-1">
-                                    <button className=" bg-[#E2E2E2] hover:bg-[#BD7416] w-[20px] h-[20px] rounded-sm"></button>
+                                    <input type="checkbox" className=" bg-[#E2E2E2] hover:bg-[#BD7416] w-[20px] h-[20px] rounded-sm"></input>
                                 </div>
                                 <div className="text-xl font-li ">
                                     <h2>I have read and agreed to the
