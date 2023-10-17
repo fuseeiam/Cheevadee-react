@@ -12,7 +12,7 @@ import PaymentPage from "../page/PaymentPage";
 import MyBooking from "../page/MyBooking";
 // import MyBookingInfo from "../page/MyBookingInfo";
 
-// import RedirectIfAuthenticated from "../feature/auth/RedirectIfAuthenticated";
+import RedirectIfAuthenticated from "../feature/auth/RedirectIfAuthenticated";
 
 
 const router = createBrowserRouter([
@@ -28,8 +28,6 @@ const router = createBrowserRouter([
             { path: 'booking', element: <BookingPage /> },
             { path: 'booking/:reserve', element: <PaymentPage /> },
 
-            { path: 'booking/:reserve/booking', element: <BookingPage /> },
-            { path: 'booking/:reserve/mybooking/:reserve', element: <PaymentPage /> },
 
             // { path: 'booking/:reserve/bookingPayment', element: <BookingPayment /> },
             { path: 'booking/:reserve/mybooking', element: <MyBooking /> },
@@ -43,11 +41,10 @@ const router = createBrowserRouter([
     {
         path: '/login',
         element: (
-            <LoginPage />
-        ), children: [
-            { path: 'account', element: <HomePage /> },
-            { path: 'account/:mybooking', element: <MyBooking /> },
-        ]
+            <RedirectIfAuthenticated>
+                <LoginPage />
+            </RedirectIfAuthenticated>
+        )
     }
 ]);
 

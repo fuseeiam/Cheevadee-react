@@ -40,14 +40,14 @@ export default function PaymentPage() {
 
             {/* Back to Booking */}
             <div className="bg-[#21395D] flex justify-between">
-                <Link to="booking">
+                <Link to="/booking">
                     <div className="flex px-40 gap-2.5 ">
                         <img src="/src/icons/white-arrow-30.png" alt="" className="w-[30px] h-[30px]" />
                         <span className="text-white text-2xl font-light">Back</span>
                     </div>
                 </Link>
 
-                <div className="flex gap-2.5 ">
+                <div className="flex gap-2.5 flex-1 justify-center">
                     <img src="/src/icons/white-lock-30.png" alt="" />
                     <span className="text-white text-2xl font-light">Secure booking (It only takes 2 minutes)</span>
                 </div>
