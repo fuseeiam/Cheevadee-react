@@ -11,6 +11,8 @@ import PaymentPage from "../page/PaymentPage";
 // import BookingPayment from "../page/BookingPayment";
 import MyBooking from "../page/MyBooking";
 // import MyBookingInfo from "../page/MyBookingInfo";
+import Authenticated from "../feature/auth/Authenticated"
+import AuthLayout from "../Layout/auth/AuthLayout"
 
 import RedirectIfAuthenticated from "../feature/auth/RedirectIfAuthenticated";
 
@@ -28,6 +30,8 @@ const router = createBrowserRouter([
             { path: 'booking', element: <BookingPage /> },
             { path: 'booking/:reserve', element: <PaymentPage /> },
 
+            { path: 'booking/:reserve/booking', element: <BookingPage /> },
+            { path: 'booking/:reserve/mybooking/:reserve', element: <PaymentPage /> },
 
             // { path: 'booking/:reserve/bookingPayment', element: <BookingPayment /> },
             { path: 'booking/:reserve/mybooking', element: <MyBooking /> },
@@ -36,15 +40,25 @@ const router = createBrowserRouter([
 
             { path: 'dining', element: <DiningPage /> },
             { path: 'spa', element: <SpaPage /> },
+            {
+                path: '/login', element: (
+                    <RedirectIfAuthenticated>
+                        <LoginPage />
+                    </RedirectIfAuthenticated>
+                )
+            },
         ]
     },
     {
-        path: '/login',
+        path: '/auth',
         element: (
-            <RedirectIfAuthenticated>
-                <LoginPage />
-            </RedirectIfAuthenticated>
-        )
+            <Authenticated>
+                <AuthLayout />
+            </Authenticated>
+        ), children: [
+            { path: 'account', element: <HomePage /> },
+            { path: 'account/:mybooking', element: <MyBooking /> },
+        ]
     }
 ]);
 
