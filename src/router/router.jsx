@@ -30,7 +30,6 @@ const router = createBrowserRouter([
             { path: 'booking', element: <BookingPage /> },
             { path: 'booking/:reserve', element: <PaymentPage /> },
 
-            { path: 'booking/:reserve/booking', element: <BookingPage /> },
             { path: 'booking/:reserve/mybooking/:reserve', element: <PaymentPage /> },
 
             // { path: 'booking/:reserve/bookingPayment', element: <BookingPayment /> },
@@ -56,8 +55,12 @@ const router = createBrowserRouter([
                 <AuthLayout />
             </Authenticated>
         ), children: [
-            { path: 'account', element: <HomePage /> },
+            { path: '', element: <HomePage /> },
             { path: 'account/:mybooking', element: <MyBooking /> },
+            { path: 'room', element: <RoomPage /> },
+            { path: 'room/:roomType', element: <RoomTypePage /> },
+            { path: 'booking', element: <BookingPage /> },
+            { path: 'booking/:reserve', element: <PaymentPage /> },
         ]
     }
 ]);

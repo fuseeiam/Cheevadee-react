@@ -4,7 +4,7 @@ import Avatar from '../../components/Avatar'
 
 export default function Header() {
     return <header className="fixed w-screen flex justify-between text-light px-40 py-5 bg-[#21395D]">
-        <Link to="/">
+        <Link to="/auth">
             <div className="flex gap-2">
                 <div className="h-11 w-11 py-1">
                     <img src="/src/assets/Logo1.png" alt="" />
@@ -16,7 +16,7 @@ export default function Header() {
         </Link>
         <div className="flex gap-4">
             <Avatar />
-            <Link to="booking">
+            <Link to="/auth/booking">
                 <BookingButton />
             </Link>
         </div>
