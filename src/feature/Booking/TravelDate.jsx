@@ -63,7 +63,7 @@ export default function TravelDate() {
                                 <input type="text" className="rounded-md p-2" />
                             </div> */}
                             <div className="px-15 py-2.5">
-                                <Link to="booking">
+                                <Link to="/booking">
                                     <CheckAvailableButton />
                                 </Link>
                             </div>

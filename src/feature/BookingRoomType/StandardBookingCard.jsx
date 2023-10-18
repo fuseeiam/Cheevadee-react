@@ -100,7 +100,7 @@ export default function StandardBookingCard() {
                       <span>tax & fees included</span>
                     </div>
                   </div>
-                  <Link to=":reserve">
+                  <Link to="reserve">
                     <button className="bg-[#C18638] hover:bg-[#BD7416] text-white text-xl py-4 px-10 rounded-md text-center font-li">
                       RESERVE
                     </button>
@@ -310,7 +310,7 @@ export default function StandardBookingCard() {
                     </div>
                   </div>
                   <Link to=":reserve">
-                    <button className="bg-[#C18638] hover:bg-[#BD7416] text-white text-xl py-4 px-10 rounded-md text-center font-li">
+                    <button className="bg-[#C18638] hover:bg-[#BD7416] text-white text-xl py-4 px-10 rounded-md text-center font-li" >
                       RESERVE
                     </button>
                   </Link>
@@ -325,8 +325,8 @@ export default function StandardBookingCard() {
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </div >
+    </div >
   )
 }
 

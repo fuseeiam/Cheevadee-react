@@ -28,12 +28,12 @@ const router = createBrowserRouter([
             { path: 'room', element: <RoomPage /> },
             { path: 'room/:roomType', element: <RoomTypePage /> },
             { path: 'booking', element: <BookingPage /> },
-            { path: 'booking/:reserve', element: <PaymentPage /> },
+            { path: 'booking/reserve', element: <PaymentPage /> },
 
-            { path: 'booking/:reserve/mybooking/:reserve', element: <PaymentPage /> },
+
 
             // { path: 'booking/:reserve/bookingPayment', element: <BookingPayment /> },
-            { path: 'booking/:reserve/mybooking', element: <MyBooking /> },
+            { path: 'booking/mybooking', element: <MyBooking /> },
             // { path: 'booking/:reserve/mybooking/:bookingInfo', element: <MyBookingInfo /> },
 
 
@@ -56,11 +56,13 @@ const router = createBrowserRouter([
             </Authenticated>
         ), children: [
             { path: '', element: <HomePage /> },
-            { path: 'account/:mybooking', element: <MyBooking /> },
+            { path: 'account/:bookingID', element: <MyBooking /> },
             { path: 'room', element: <RoomPage /> },
             { path: 'room/:roomType', element: <RoomTypePage /> },
+            { path: 'spa', element: <SpaPage /> },
             { path: 'booking', element: <BookingPage /> },
             { path: 'booking/:reserve', element: <PaymentPage /> },
+            { path: 'booking/mybooking/:userId', element: <MyBooking /> },
         ]
     }
 ]);

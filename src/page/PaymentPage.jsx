@@ -286,7 +286,9 @@ export default function PaymentPage() {
                             </div>
 
                             {/* make a booking */}
-                            <Link to="myBooking">
+                            <Link
+                            // Open Modal reserve success and please log in to check Booking
+                            >
                                 <div className="flex justify-end px-10">
                                     <button className="bg-[#C18638] hover:bg-[#BD7416] text-white text-xl px-5 py-3 w-80 rounded-md text-center font-li ">
                                         MAKE A BOOKING
@@ -392,6 +394,6 @@ export default function PaymentPage() {
                 <div className=" p-20 flex justify-center">
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
