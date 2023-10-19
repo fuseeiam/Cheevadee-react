@@ -112,15 +112,17 @@ export default function PaymentPage() {
 
                                         </div>
 
-                                        <div className="flex gap-5 p-5">
-                                            <div className="flex flex-col">
-                                                <div className="text-2xl font-semibold">E-mail</div>
+                                        <div className="flex text-light flex-col-6 justify-start gap-10 px-5 ">
+                                            {/* <div className="flex flex-col">
+                                                <div className="text-2xl font-semibold">Arrival</div>
                                                 <PaymentInput
                                                     placeholder=" "
                                                     value={input.email}
                                                     onchange={e => setInput({ ...input, email: e.target.value })}
                                                 />
                                             </div>
+
+
                                             <div className="flex flex-col">
                                                 <div className="text-2xl font-semibold">Password</div>
                                                 <PaymentInput
@@ -138,6 +140,31 @@ export default function PaymentPage() {
                                                     value={input.password}
                                                     onchange={e => setInput({ ...input, password: e.target.value })}
                                                 />
+                                            </div> */}
+
+                                            <div className="flex gap-5  ">
+                                                <div className="flex flex-col text-2xl font-semibold">
+                                                    Arrival
+                                                    <input type="date" className="text-[#63635D] text-xl font-li rounded-md p-2 w-full h-[60px] outline-none border border-gray-300" />
+                                                </div>
+                                                <div className="flex flex-col text-2xl font-semibold" >
+                                                    Departure
+                                                    <input type="date" className="text-[#63635D] text-xl font-li rounded-md p-2 w-full h-[60px] outline-none border border-gray-300" />
+                                                </div>
+                                                <div className="flex flex-col text-2xl font-semibold" >
+                                                    Room_ID
+                                                    <select className="text-[#63635D] text-xl font-li  rounded-md p-2 w-full h-[60px] outline-none border border-gray-300">
+                                                        <option value="1">STANDRAD ROOM - No Window - 2 twin beds</option>
+                                                        <option value="2">STANDRAD ROOM - No Window - 1 king bed</option>
+                                                        <option value="3">STANDRAD ROOM - With Balcony - 1 king bed</option>
+                                                        <option value="4">SUPERIOR ROOM - 2 twin beds</option>
+                                                        <option value="5">SUPERIOR ROOM - 1 king bed</option>
+                                                        <option value="6">SUPERIOR DOUBLE ROOM - With Balcony - 1 king bed</option>
+                                                        <option value="7">DELUXE DOUBLE ROOM - With Balcony - 1 king bed</option>
+                                                        <option value="8">JUNIOR SUITE - 1 king bed</option>
+                                                    </select>
+                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
