@@ -152,7 +152,7 @@ export default function PaymentPage() {
                                                     <input type="date" className="text-[#63635D] text-xl font-li rounded-md p-2 w-full h-[60px] outline-none border border-gray-300" />
                                                 </div>
                                                 <div className="flex flex-col text-2xl font-semibold" >
-                                                    Room_ID
+                                                    Roomtype ID
                                                     <select className="text-[#63635D] text-xl font-li  rounded-md p-2 w-full h-[60px] outline-none border border-gray-300">
                                                         <option value="1">STANDRAD ROOM - No Window - 2 twin beds</option>
                                                         <option value="2">STANDRAD ROOM - No Window - 1 king bed</option>

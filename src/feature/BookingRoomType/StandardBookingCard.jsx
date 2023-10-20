@@ -2,11 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
-export default function StandardBookingCard() {
+export default function StandardBookingCard({ price, room_size, bed, view }) {
   // const [isOpen, setIsOpen] = useState(false);
   return (
     <div>
-      {/* standard twin bed */}
+      {/* standard twin bed room_id = 1*/}
       <div>
         <div className="bg-[#21395D] flex justify-center px-40 py-10">
           <div className="bg-white w-full rounded-md p-5 outline-none border border-gray-300 flex ">
@@ -93,7 +93,7 @@ export default function StandardBookingCard() {
                         <span className="text-2xl font-semibold "> THB </span>
                       </div>
                       <div>
-                        <span className="text-4xl font-bold">2,450</span>
+                        <span className="text-4xl font-bold">{price}</span>
                       </div>
                     </div>
                     <div>
@@ -118,7 +118,7 @@ export default function StandardBookingCard() {
         </div>
       </div>
 
-      {/* standard king bed */}
+      {/* standard king bed => room_id = 2 */}
       <div>
         <div className="bg-[#21395D] flex justify-center px-40 py-10">
           <div className="bg-white w-full rounded-md p-5 outline-none border border-gray-300 flex ">
@@ -197,7 +197,7 @@ export default function StandardBookingCard() {
                         <span className="text-2xl font-semibold "> THB </span>
                       </div>
                       <div>
-                        <span className="text-4xl font-bold">2,450</span>
+                        <span className="text-4xl font-bold">{price}</span>
                       </div>
                     </div>
                     <div>
@@ -222,7 +222,7 @@ export default function StandardBookingCard() {
         </div>
       </div>
 
-      {/* standard balcony king bed */}
+      {/* standard balcony king bed room_id = 3 */}
       <div>
         <div className="bg-[#21395D] flex justify-center px-40 py-10">
           <div className="bg-white w-full rounded-md p-5 outline-none border border-gray-300 flex ">
@@ -302,7 +302,7 @@ export default function StandardBookingCard() {
                         <span className="text-2xl font-semibold "> THB </span>
                       </div>
                       <div>
-                        <span className="text-4xl font-bold">3,150</span>
+                        <span className="text-4xl font-bold">{price}</span>
                       </div>
                     </div>
                     <div>

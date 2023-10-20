@@ -3,7 +3,7 @@ import React from 'react'
 export default function SuperiorBookingCard() {
     return (
         <div>
-            {/* superior twin bed */}
+            {/* superior twin bed room_id = 4 */}
             <div>
                 <div className="bg-[#21395D] flex justify-center px-40 py-10">
                     <div className="bg-white w-full rounded-md p-5 outline-none border border-gray-300 flex ">
@@ -83,7 +83,7 @@ export default function SuperiorBookingCard() {
                                                 <span className="text-2xl font-semibold "> THB </span>
                                             </div>
                                             <div>
-                                                <span className="text-4xl font-bold">3,640</span>
+                                                <span className="text-4xl font-bold">{price}</span>
                                             </div>
                                         </div>
                                         <div>
@@ -106,7 +106,7 @@ export default function SuperiorBookingCard() {
                 </div>
             </div>
 
-            {/* superior king bed */}
+            {/* superior king bed room_id = 5 */}
             <div>
                 <div className="bg-[#21395D] flex justify-center px-40 py-10">
                     <div className="bg-white w-full rounded-md p-5 outline-none border border-gray-300 flex ">
@@ -185,7 +185,7 @@ export default function SuperiorBookingCard() {
                                                 <span className="text-2xl font-semibold "> THB </span>
                                             </div>
                                             <div>
-                                                <span className="text-4xl font-bold">3,640</span>
+                                                <span className="text-4xl font-bold">{price}</span>
                                             </div>
                                         </div>
                                         <div>
@@ -208,7 +208,7 @@ export default function SuperiorBookingCard() {
                 </div>
             </div>
 
-            {/* superior balcony king bed */}
+            {/* superior balcony king bed room_id = 6 */}
             <div>
                 <div className="bg-[#21395D] flex justify-center px-40 py-10">
                     <div className="bg-white w-full rounded-md p-5 outline-none border border-gray-300 flex ">
@@ -287,7 +287,7 @@ export default function SuperiorBookingCard() {
                                                 <span className="text-2xl font-semibold "> THB </span>
                                             </div>
                                             <div>
-                                                <span className="text-4xl font-bold">3,990</span>
+                                                <span className="text-4xl font-bold">{price}</span>
                                             </div>
                                         </div>
                                         <div>

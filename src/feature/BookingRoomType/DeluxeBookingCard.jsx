@@ -3,7 +3,7 @@ import React from 'react'
 export default function DeluxeBookingCard() {
     return (
         <div>
-            {/* Deluxe king bed */}
+            {/* Deluxe king bed room_id = 7*/}
             <div>
                 <div className="bg-[#21395D] flex justify-center px-40 py-10">
                     <div className="bg-white w-full rounded-md p-5 outline-none border border-gray-300 flex ">
@@ -82,7 +82,7 @@ export default function DeluxeBookingCard() {
                                                 <span className="text-2xl font-semibold "> THB </span>
                                             </div>
                                             <div>
-                                                <span className="text-4xl font-bold">4,340</span>
+                                                <span className="text-4xl font-bold">{price}</span>
                                             </div>
                                         </div>
                                         <div>
