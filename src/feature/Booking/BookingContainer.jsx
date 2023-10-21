@@ -1,7 +1,7 @@
 import StandardBookingCard from "../BookingRoomType/StandardBookingCard";
-// import SuperiorBookingCard from "../BookingRoomType/SuperiorBookingCard";
-// import DeluxeBookingCard from "../BookingRoomType/DeluxeBookingCard";
-// import JuniorSuiteBookingCard from "../BookingRoomType/JuniorSuiteBookingCard";
+import SuperiorBookingCard from "../BookingRoomType/SuperiorBookingCard";
+import DeluxeBookingCard from "../BookingRoomType/DeluxeBookingCard";
+import JuniorSuiteBookingCard from "../BookingRoomType/JuniorSuiteBookingCard";
 import { useState, useEffect } from "react";
 import axios from "../../config/axios";
 import { data } from "autoprefixer";
@@ -22,14 +22,22 @@ export default function BookingContainer() {
     }, []);
     return (
         <div>
-            {standardRoom.map((room) => <StandardBookingCard key={room.id} price={room.price} picture={room.picture} roomSize={room.roomSize} bed={room.bed} veiw={room.veiw} roomtype={room.roomtype} />)}
+            {standardRoom.map((room) =>
+                <StandardBookingCard
+                    key={room.id}
+                    roomtype={room.roomtype}
+                    picture={room.picture}
+                    bed={room.bed}
+                    roomSize={room.roomSize}
+                    view={room.view}
+                    price={room.price} />)}
 
             {/* {allRoom.map((room) => <SuperiorBookingCard price={room.price} />)}
             {allRoom.map((room) => <DeluxeBookingCard price={room.price} />)}
-            {allRoom.map((room) => <JuniorSuiteBookingCard price={room.price} />)}
- */}
+            {allRoom.map((room) => <JuniorSuiteBookingCard price={room.price} />)} */}
 
-            <div className="bg-[#21395D] py-20 ">
+
+            <div className="bg-[#21395D] h-[1000px] ">
             </div>
         </div>
     )

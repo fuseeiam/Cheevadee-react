@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
-export default function StandardBookingCard({ price, picture, roomSize, bed, veiw, roomtype }) {
+export default function StandardBookingCard({ roomtype, picture, bed, view, roomSize, price }) {
   // const [isOpen, setIsOpen] = useState(false);
 
   return (<div>
@@ -21,8 +21,8 @@ export default function StandardBookingCard({ price, picture, roomSize, bed, vei
               <h2 className="text-[#63635D] py-0.5 font-light">X 2</h2>
             </div>
             <div className="flex px-5">
-              <img src="/src/icons/single-bed-50.png" alt="" className="w-[30px] h-[30px]" />
-              <img src="/src/icons/single-bed-50.png" alt="" className="w-[30px] h-[30px]" />
+              <img src="/src/icons/bedroom-50.png" alt="" className="w-[30px] h-[30px]" />
+              {/* <img src="/src/icons/single-bed-50.png" alt="" className="w-[30px] h-[30px]" /> */}
               <h2 className="text-[#63635D] px-2.5 py-0.5 font-light">{bed}</h2>
             </div>
             <div className="flex ">
@@ -36,7 +36,7 @@ export default function StandardBookingCard({ price, picture, roomSize, bed, vei
           </div>
           <div className="flex py-1">
             <img src="/src/icons/window-50.png" alt="" className="w-[30px] h-[30px]" />
-            <h2 className="text-[#63635D]  px-2.5 py-0.5 font-light">{veiw}</h2>
+            <h2 className="text-[#63635D]  px-2.5 py-0.5 font-light">{view}</h2>
           </div>
           <div className="flex py-1">
             <h2 className="text-[#C18638] hover:text-[#BD7416] hover:underline py-0.5 font-light"
