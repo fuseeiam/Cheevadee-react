@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function JuniorSuiteBookingCard() {
+export default function JuniorSuiteBookingCard({ price, roomSize, bed, view, roomtype }) {
     return (
         <div> {/* Suite king bed room_id = 8 */}
             <div>

@@ -14,6 +14,8 @@ import MyBooking from "../page/MyBooking";
 import Authenticated from "../feature/auth/Authenticated"
 import AuthLayout from "../Layout/auth/AuthLayout"
 
+
+
 import RedirectIfAuthenticated from "../feature/auth/RedirectIfAuthenticated";
 
 
@@ -62,7 +64,8 @@ const router = createBrowserRouter([
             { path: 'spa', element: <SpaPage /> },
             { path: 'booking', element: <BookingPage /> },
             { path: 'booking/:reserve', element: <PaymentPage /> },
-            { path: 'booking/mybooking/:userId', element: <MyBooking /> },
+            { path: 'booking/mybooking/:userId', element: <MyBooking /> }
+
         ]
     }
 ]);

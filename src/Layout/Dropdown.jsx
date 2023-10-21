@@ -3,12 +3,15 @@ import { Link } from "react-router-dom";
 import Avatar from '../components/Avatar';
 import { useEffect, useRef, useState } from 'react';
 import { useAuth } from '../hooks/use-auth';
-import { RightFromBracketIcon } from "../icons";
+import { RightFromBracketIcon, PenIcon } from "../icons";
+
 
 export default function Dropdown() {
     const [isOpen, setIsOpen] = useState(false);
     const dropDrownE1 = useRef(null)
     const { logout, authUser } = useAuth();
+
+
 
     useEffect(() => {
         const handdleClickOutside = e => {
@@ -40,7 +43,18 @@ export default function Dropdown() {
                             </div>
                         </div>
                     </Link>
+
                     <hr className='m-2 border' />
+
+                    <Link to=" " onClick={() => setIsOpen(false)}>
+                        <div className='flex gap-4 p-2 items-center cursor-pointer hover:bg-gray-100 rounded-xl'>
+                            <div>
+                                <PenIcon />
+                            </div>
+                            <div className="font-semibold text-sm">Edit Profile</div>
+                        </div>
+                    </Link>
+
                     <div className='flex gap-4 p-2 items-center cursor-pointer hover:bg-gray-100 rounded-xl'
                         onClick={logout}
                     >

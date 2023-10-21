@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function SuperiorBookingCard() {
+export default function SuperiorBookingCard({ price, roomSize, bed, view }) {
     return (
         <div>
             {/* superior twin bed room_id = 4 */}

@@ -11,8 +11,6 @@ export default function BookingPage() {
     }, [])
     return (
         <div>
-            {/* <BookingHeader /> */}
-
             <BookingDateRates />
             <BookingContainer />
             <FootingPage />

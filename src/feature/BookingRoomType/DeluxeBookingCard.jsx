@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function DeluxeBookingCard() {
+export default function DeluxeBookingCard({ price, roomSize, bed, view }) {
     return (
         <div>
             {/* Deluxe king bed room_id = 7*/}

@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
-export default function StandardBookingCard({ price, room_size, bed, view }) {
+export default function StandardBookingCard({ price, roomSize, bed, view }) {
   // const [isOpen, setIsOpen] = useState(false);
   return (
     <div>

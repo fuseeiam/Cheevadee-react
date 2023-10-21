@@ -151,7 +151,7 @@ export default function PaymentPage() {
                                                     Departure
                                                     <input type="date" className="text-[#63635D] text-xl font-li rounded-md p-2 w-full h-[60px] outline-none border border-gray-300" />
                                                 </div>
-                                                <div className="flex flex-col text-2xl font-semibold" >
+                                                {/* <div className="flex flex-col text-2xl font-semibold" >
                                                     Roomtype ID
                                                     <select className="text-[#63635D] text-xl font-li  rounded-md p-2 w-full h-[60px] outline-none border border-gray-300">
                                                         <option value="1">STANDRAD ROOM - No Window - 2 twin beds</option>
@@ -163,7 +163,7 @@ export default function PaymentPage() {
                                                         <option value="7">DELUXE DOUBLE ROOM - With Balcony - 1 king bed</option>
                                                         <option value="8">JUNIOR SUITE - 1 king bed</option>
                                                     </select>
-                                                </div>
+                                                </div> */}
 
                                             </div>
                                         </div>
