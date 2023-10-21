@@ -1,7 +1,9 @@
 import CheckAvailableButton from "../../feature/Booking/CheckAvailableButton";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../hooks/use-auth"
 
 export default function TravelDate() {
+    const { user } = useAuth()
     return (
         <div>
             <div className="bg-[#E2E2E2] w-full h-60">
@@ -63,7 +65,7 @@ export default function TravelDate() {
                                 <input type="text" className="rounded-md p-2" />
                             </div> */}
                             <div className="px-15 py-2.5">
-                                <Link to="/booking">
+                                <Link to={user ? "/auth/booking" : "booking"}>
                                     <CheckAvailableButton />
                                 </Link>
                             </div>
