@@ -1,7 +1,7 @@
 import StandardBookingCard from "../BookingRoomType/StandardBookingCard";
-import SuperiorBookingCard from "../BookingRoomType/SuperiorBookingCard";
-import DeluxeBookingCard from "../BookingRoomType/DeluxeBookingCard";
-import JuniorSuiteBookingCard from "../BookingRoomType/JuniorSuiteBookingCard";
+// import SuperiorBookingCard from "../BookingRoomType/SuperiorBookingCard";
+// import DeluxeBookingCard from "../BookingRoomType/DeluxeBookingCard";
+// import JuniorSuiteBookingCard from "../BookingRoomType/JuniorSuiteBookingCard";
 import { useState, useEffect } from "react";
 import axios from "../../config/axios";
 import { data } from "autoprefixer";
@@ -20,6 +20,7 @@ export default function BookingContainer() {
                 console.log(err);
             });
     }, []);
+
     return (
         <div>
             {standardRoom.map((room) =>

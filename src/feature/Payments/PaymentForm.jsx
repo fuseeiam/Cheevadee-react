@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { toast } from 'react-toastify';
-import PaymentInput from "./RegisterInput";
+import PaymentInput from "../../feature/Payments/PaymentInput";
 import Joi from 'joi';
-import InputErrorMessage from "./InputErrorMessage";
+import InputErrorMessage from "../../feature/auth/InputErrorMessage";
 import { useAuth } from "../../hooks/use-auth";
 
 const registerSchema = Joi.object({
@@ -37,10 +37,7 @@ export default function PaymentForm() {
     const [input, setInput] = useState({
         firstName: '',
         lastName: '',
-        email: '',
-        mobile: '',
-        password: '',
-        confirmPassword: ''
+        mobile: ''
     });
 
     const [error, setError] = useState({
@@ -79,6 +76,7 @@ export default function PaymentForm() {
             />
             {error.firstName && <InputErrorMessage message={error.firstName} />}
         </div>
+
         <div>
             <PaymentInput placeholder="Last name"
                 value={input.lastName}
@@ -88,15 +86,7 @@ export default function PaymentForm() {
             />
             {error.lastName && <InputErrorMessage message={error.lastName} />}
         </div>
-        <div className="col-span-full">
-            <PaymentInput placeholder="Email address"
-                value={input.email}
-                onChange={handleChangeInput}
-                name="email"
-                hasError={error.email}
-            />
-            {error.email && <InputErrorMessage message={error.email} />}
-        </div>
+
         <div className="col-span-full">
             <PaymentInput placeholder="mobile number"
                 value={input.email}
@@ -106,28 +96,11 @@ export default function PaymentForm() {
             />
             {error.mobile && <InputErrorMessage message={error.mobile} />}
         </div>
-        <div className="col-span-full">
-            <PaymentInput placeholder="Password" type="password"
-                value={input.password}
-                onChange={handleChangeInput}
-                name="password"
-                hasError={error.password}
-            />
-            {error.password && <InputErrorMessage message={error.password} />}
-        </div>
-        <div className="col-span-full">
-            <PaymentInput placeholder="Confirm Password" type="password"
-                value={input.confirmPassword}
-                onChange={handleChangeInput}
-                name="confirmPassword"
-                hasError={error.confirmPassword}
-            />
-            {error.confirmPassword && <InputErrorMessage message={error.confirmPassword} />}
-        </div>
+        {/*         
         <div className="mx-auto col-span-full">
             <button className="bg-[#C18638] hover:bg-[#BD7416] rounded-lg text-white px-3 py-1.5 font-light min-w-[10rem]">
                 Sign up
             </button>
-        </div>
+        </div> */}
     </form>
 }
