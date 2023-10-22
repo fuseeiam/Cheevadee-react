@@ -20,6 +20,7 @@ export default function PaymentInput({
             value={value}
             onChange={onChange}
             name={name}
+
         />
     );
 }

@@ -6,8 +6,7 @@ import CreditInput from "../feature/Payments/CreditInput";
 import { useAuth } from "../hooks/use-auth";
 import { useEffect } from "react";
 import { scrollToTop } from "../utils/scrollToTop";
-import MyBooking from "./MyBooking";
-
+import PostSlipHomePage from '../feature/Payments/PostSlipHomepage';
 
 export default function PaymentPage() {
     const [input, setInput] = useState({
@@ -71,7 +70,7 @@ export default function PaymentPage() {
 
                 {/* Enter your details */}
                 <div className="bg-[#21395D] flex justify-center px-40 py-10 gap-10">
-                    <div className="bg-white w-full  h-[2080px] rounded-md p-5 outline-none border border-gray-300 flex ">
+                    <div className="bg-white w-full  h-full rounded-md p-5 outline-none border border-gray-300 flex ">
                         <div className="flex flex-col">
                             <div>
                                 <div className="flex flex-col p-5">
@@ -151,20 +150,6 @@ export default function PaymentPage() {
                                                     Departure
                                                     <input type="date" className="text-[#63635D] text-xl font-li rounded-md p-2 w-full h-[60px] outline-none border border-gray-300" />
                                                 </div>
-                                                {/* <div className="flex flex-col text-2xl font-semibold" >
-                                                    Roomtype ID
-                                                    <select className="text-[#63635D] text-xl font-li  rounded-md p-2 w-full h-[60px] outline-none border border-gray-300">
-                                                        <option value="1">STANDRAD ROOM - No Window - 2 twin beds</option>
-                                                        <option value="2">STANDRAD ROOM - No Window - 1 king bed</option>
-                                                        <option value="3">STANDRAD ROOM - With Balcony - 1 king bed</option>
-                                                        <option value="4">SUPERIOR ROOM - 2 twin beds</option>
-                                                        <option value="5">SUPERIOR ROOM - 1 king bed</option>
-                                                        <option value="6">SUPERIOR DOUBLE ROOM - With Balcony - 1 king bed</option>
-                                                        <option value="7">DELUXE DOUBLE ROOM - With Balcony - 1 king bed</option>
-                                                        <option value="8">JUNIOR SUITE - 1 king bed</option>
-                                                    </select>
-                                                </div> */}
-
                                             </div>
                                         </div>
                                     </div>
@@ -245,14 +230,10 @@ export default function PaymentPage() {
                             {/* Optional information */}
                             <div className="flex flex-col p-5">
                                 <div className="flex flex-col">
-                                    <div className="text-4xl font-li py-3">Your special request</div>
-                                    <PaymentInput
-                                        placeholder="eg. bed preference, pick-up or drop-off location"
-                                        value={input.specialRequest}
-                                        onchange={e => setInput({ ...input, specialRequest: e.target.value })}
-                                    />
+                                    <div className="text-2xl font-li">Payment Slip</div>
+                                    <div className="text-[#BD7416] text-xl font-li py-3">* Kasikorn Bank / Cheevadeee Hohel : xxx-x-xx99-x </div>
                                 </div>
-                                <div className="text-[#BD7416] text-xl font-li py-3">* Special request is not guaranteed. Your request will be taken care where possible.</div>
+                                <PostSlipHomePage />
                             </div>
 
                             {/* Terms and Conditions of Booking */}
@@ -382,7 +363,7 @@ export default function PaymentPage() {
                             </div>
 
                             {/* total price */}
-                            <div className="bg-[#D4D4D4] w-[450px] h-[160px] rounded-md outline-none border border-gray-300 flex flex-col p-5 text-xl mt-5">
+                            <div className="bg-[#D4D4D4] w-[450px] h-full rounded-md outline-none border border-gray-300 flex flex-col p-5 text-xl mt-5">
                                 <div className="flex flex-col ">
                                     <span className="text-2xl font-semibold py-2">Total</span>
 
