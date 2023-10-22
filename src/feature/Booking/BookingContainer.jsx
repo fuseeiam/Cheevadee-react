@@ -8,7 +8,7 @@ import { data } from "autoprefixer";
 
 export default function BookingContainer() {
     const [allRoom, setAllRoom] = useState([]);
-    const standardRoom = allRoom.filter(room => (room.roomtype === 'STANDARD'))
+    const standardRoom = allRoom.filter(room => (room.roomtype === 'STANDARD ROOM'))
 
     useEffect(() => {
         axios

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
 export default function StandardBookingCard({ roomtype, picture, bed, view, roomSize, price }) {
-  // const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (<div>
     <div className="bg-[#21395D] flex justify-center px-40 py-10">
