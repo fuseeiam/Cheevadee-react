@@ -43,27 +43,27 @@ export default function MyBooking() {
             </div>
 
             {/* Your Bookibg */}
-            {/* <Link to="mybooking/:bookingInfo"> */}
+
             <div>
                 <div className='bg-[#E2E2E2] px-40 py-5 '>
                     <div className='flex flex-col '>
                         <h1 className='text-2xl font-semibold'>CHEEVA DEE HOTEL</h1>
-                        <span className='text-2xl font-light mt-5'>Nov 9, 2023 - Nov 11, 2023</span>
+                        {/* <span className='text-2xl font-light mt-5'>Nov 9, 2023 - Nov 11, 2023</span> */}
                     </div>
                 </div>
                 <div className='bg-[#E2E2E2] flex justify-center px-40  gap-10'>
 
-                    <div className='  bg-white w-full h-[380px] rounded-md p-5 outline-none border border-gray-300  '>
+                    <div className='  bg-white w-full h-full rounded-md p-5 outline-none border border-gray-300  '>
                         <div className='flex justify-between'>
                             <div className='flex gap-5'>
                                 <div>
-                                    <img src="/src/assets/room-standard-1.jpeg" alt="" className='p5 w-[400px] h-[340px] rounded-md ' />
+                                    <img src="/src/assets/room-standard-1.jpeg" alt="bookingRoom" className='p5 w-[400px] h-[340px] rounded-md ' />
                                 </div>
                                 <div className=' flex flex-col'>
-                                    <h2 className='text-2xl font-bold '>STANDRAD ROOM  - No Window</h2>
+                                    <h2 className='text-2xl font-bold '>STANDRAD ROOM</h2>
                                     <span className='flex text-xl font-li mt-3 gap-3'>
                                         <div>Nov 9, 2023 - Nov 11, 2023</div>
-                                        <div> Chiang Mai</div>
+                                        <div>Chiang Mai</div>
                                     </span>
                                     {/* <span className='text-xl font-li mt-3'>Awaiting</span> */}
                                     <hr className=' mt-6' />
@@ -92,23 +92,39 @@ export default function MyBooking() {
                             <div className='flex-flex-col'>
                                 <div className='flex justify-center gap-14 '>
                                     <div className='flex flex-col items-center'>
-                                        <img src="/src/icons/circle-correct-50.png" alt="" className='w-[40px] h-[40px]' />
+                                        <img src="/src/icons/circle-correct-50.png" alt="PENDING" className='w-[40px] h-[40px]' />
                                         <span className='text-[#21395D] text-xl font-li'>Paid</span>
                                     </div>
                                     <div className='flex flex-col items-center'>
-                                        <img src="/src/icons/circle-correct-50.png" alt="" className='w-[40px] h-[40px]' />
+                                        <img src="/src/icons/circle-correct-50.png" alt="PENDING" className='w-[40px] h-[40px]' />
                                         <span className='text-[#21395D] text-xl font-li'>Awaiting</span>
                                     </div>
-                                    <div className='flex flex-col items-center'>
-                                        <img src="/src/icons/circle-gray-correct-50.png" alt="" className='w-[40px] h-[40px]' />
-                                        <span className='text-[#63635D] text-xl font-li'>Confirmed</span>
+                                    <div>
+                                        {/* Admin is ckecking */}
+                                        {/* <div className='flex flex-col items-center'>
+                                            <img src="/src/icons/circle-gray-correct-50.png" alt=" CHECKING" className='w-[40px] h-[40px]' />
+                                            <span className='text-[#63635D] text-xl font-li'>Confirmed</span>
+                                        </div> */}
+
+                                        {/* Admin is completed */}
+                                        <div className='flex flex-col items-center'>
+                                            <img src="/src/icons/circle-correct-50.png" alt="COMPLETED" className='w-[40px] h-[40px]' />
+                                            <span className='text-[#21395D] text-xl font-li'>Confirmed</span>
+                                        </div>
                                     </div>
+
+
                                 </div>
                                 <div className='w-[600px] h-[240px] rounded-xl mt-5 outline-none  border-[#21395D] border-2 flex flex-col'>
                                     <div className='p-5'>
-                                        <div className='text-4xl font-semibold'>
+                                        {/* <div className='text-4xl font-semibold'>
                                             <h1>Your booking is <span className='text-[#C18638]'>Awaiting</span></h1>
+                                        </div> */}
+
+                                        <div className='text-4xl font-semibold'>
+                                            <h1>Your booking is <span className='text-[#C18638]'>Confirmed</span></h1>
                                         </div>
+
                                         <h2 className=' text-xl font-semibold mt-7'>When you arrive, present a photo ID that matches the guest name below.</h2>
                                         <div className='flex flex-col text-xl font-li'>
                                             <span>Provide this number at check-in :</span>

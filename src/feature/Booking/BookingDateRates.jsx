@@ -29,12 +29,6 @@ export default function BookingDateRate() {
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-
                                 </select>
                             </div>
                             <div className="text-white flex flex-col w-40" >
@@ -44,23 +38,14 @@ export default function BookingDateRate() {
                                     <option value="2">2</option>
                                     <option value="3">3</option>
                                     <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
                                 </select>
                             </div>
                             <div className="text-white flex flex-col w-40" >
                                 CHILD(REN)
                                 <select className="text-[#63635D] rounded-md p-2.5">
+                                    <option value="0">0</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
                                 </select>
                             </div>
                             {/* <div className="flex flex-col w-40" >
@@ -68,7 +53,7 @@ export default function BookingDateRate() {
                                 <input type="text" className="rounded-md p-2" />
                             </div> */}
                         </div>
-                        <Link to="booking/:reserve">
+                        <Link to="">
                             <div className=" py-3.5 ">
                                 <button className="bg-[#C18638] hover:bg-[#BD7416] text-white font-li w-200 h-15 mt-1 px-10 py-3 rounded-md ">
                                     SEARCH

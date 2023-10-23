@@ -44,4 +44,3 @@ export default function BookingContainer() {
     )
 }
 
-// ไปทำ relative modal ที่  schema ตาม ER diagram ดูตัวอย่าง facebook

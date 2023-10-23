@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useState } from "react";
 import PaymentInput from "../feature/Payments/PaymentInput";
 import CreditInput from "../feature/Payments/CreditInput";
@@ -9,11 +8,13 @@ import PostSlipHomePage from '../feature/Payments/PostSlipHomepage';
 import ConditionsOfBooking from '../feature/BookingData/ConditionsOfBooking';
 import BookingHeader from '../feature/BookingData/BookingHeader';
 import ReservationCard from '../feature/BookingData/ReservationCard';
+import Modal from '../components/Modal';
+import PaymentBoonkingForm from '../feature/Payments/PaymentBoonkingForm';
 
 export default function PaymentPage() {
     const [input, setInput] = useState({
         firstName: '',
-        lastname: '',
+        lastName: '',
         mobile: ''
     });
 
@@ -29,6 +30,7 @@ export default function PaymentPage() {
     useEffect(() => {
         scrollToTop()
     }, [])
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
         <div>
@@ -92,6 +94,23 @@ export default function PaymentPage() {
                                                     Departure
                                                     <input type="date" className="text-[#63635D] text-xl font-li rounded-md p-2 w-full h-[60px] outline-none border border-gray-300" />
                                                 </div>
+                                                <div className="flex flex-col text-2xl font-semibold" >
+                                                    Adult(s)
+                                                    <select className="text-[#63635D] text-xl font-li rounded-md p-2 w-full h-[60px] outline-none border border-gray-300">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                    </select>
+                                                </div>
+                                                <div className="flex flex-col text-2xl font-semibold" >
+                                                    Child(ren)
+                                                    <select className="text-[#63635D] text-xl font-li rounded-md p-2 w-full h-[60px] outline-none border border-gray-300">
+                                                        <option value="0">0</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -101,79 +120,80 @@ export default function PaymentPage() {
 
 
                             {/* Select a payment method */}
-                            <div className="flex flex-col  p-5">
-                                <div className="flex justify-start gap-5">
-                                    <img src="/src/icons/blue-lock-30.png" alt="" className="w-[40px] h-[40px]" />
-                                    <h1 className="text-4xl font-li">Select a payment method</h1>
-                                </div>
-                            </div>
-                            <div className="bg-white w-full h-[450px] rounded-xl px-5 p-5 outline-none  border-[#21395D] border-8 flex flex-col">
-                                <div className="flex justify-between">
-                                    <div className="flex gap-3">
-                                        <img src="/src/icons/credit-card-30.png" alt="" className="w-[40px] h-[40px]" />
-                                        <span className="text-[#21395D] text-3xl font-semibold mt-0.5">Credit Card</span>
-                                    </div>
-                                    <div>
-                                        <img src="/src/icons/blue-correct-48.png" alt="" className="w-[40px] h-[40px]" />
+                            <>
+                                <div className="flex flex-col  p-5">
+                                    <div className="flex justify-start gap-5">
+                                        <img src="/src/icons/blue-lock-30.png" alt="lock" className="w-[40px] h-[40px]" />
+                                        <h1 className="text-4xl font-li">Select a payment method</h1>
                                     </div>
                                 </div>
-                                <div className="flex gap-5">
-                                    <div className="flex flex-col mt-5">
-                                        <div className="mt-5">
-                                            <div className="text-2xl font-semibold">Card number</div>
-                                            <CreditInput
-                                                type="number"
-                                                placeholder=" "
-                                                value={input.cardNumber}
-                                                onchange={e => setInput({ ...input, cardNumber: e.target.value })}
-                                            />
+                                <div className="bg-white w-full h-[450px] rounded-xl px-5 p-5 outline-none  border-[#21395D] border-8 flex flex-col">
+                                    <div className="flex justify-between">
+                                        <div className="flex gap-3">
+                                            <img src="/src/icons/credit-card-30.png" alt="credit card" className="w-[40px] h-[40px]" />
+                                            <span className="text-[#21395D] text-3xl font-semibold mt-0.5">Credit Card</span>
                                         </div>
-                                        <div className="mt-5">
-                                            <div className="text-2xl font-semibold">Card holder name</div>
-                                            <CreditInput
-                                                type="text"
-                                                placeholder=" "
-                                                value={input.cardName}
-                                                onchange={e => setInput({ ...input, cardName: e.target.value })}
-                                            />
-                                        </div>
-                                        <div className="mt-5">
-                                            <div className="text-2xl font-semibold">Expiry date</div>
-                                            <CreditInput
-                                                type="number"
-                                                placeholder="MM/YY"
-                                                value={input.expiryDate}
-                                                onchange={e => setInput({ ...input, expiryDate: e.target.value })}
-                                            />
+                                        <div>
+                                            <img src="/src/icons/blue-correct-48.png" alt="correct" className="w-[40px] h-[40px]" />
                                         </div>
                                     </div>
-
-                                    <div>
-                                        <div className="flex flex-col p-5 mt-5">
-                                            <span className="text-2xl font-semibold">We accept the following payment methods</span>
-                                            <div className="flex gap-3">
-                                                <img src="/src/icons/visa-card-48.png" alt="" className="w-[60px] h-60px]" />
-                                                <img src="/src/icons/mastercard-48.png" alt="" className="w-[60px] h-60px]" />
-                                                <img src="/src/icons/jcb-48.png" alt="" className="w-[60px] h-60px]" />
-                                                <img src="/src/icons/unionpay-48.png" alt="" className="w-[60px] h-60px]" />
+                                    <div className="flex gap-5">
+                                        <div className="flex flex-col mt-5">
+                                            <div className="mt-5">
+                                                <div className="text-2xl font-semibold">Card number</div>
+                                                <CreditInput
+                                                    type="number"
+                                                    placeholder=" "
+                                                    value={input.cardNumber}
+                                                    onchange={e => setInput({ ...input, cardNumber: e.target.value })}
+                                                />
+                                            </div>
+                                            <div className="mt-5">
+                                                <div className="text-2xl font-semibold">Card holder name</div>
+                                                <CreditInput
+                                                    type="text"
+                                                    placeholder=" "
+                                                    value={input.cardName}
+                                                    onchange={e => setInput({ ...input, cardName: e.target.value })}
+                                                />
+                                            </div>
+                                            <div className="mt-5">
+                                                <div className="text-2xl font-semibold">Expiry date</div>
+                                                <CreditInput
+                                                    type="number"
+                                                    placeholder="MM/YY"
+                                                    value={input.expiryDate}
+                                                    onchange={e => setInput({ ...input, expiryDate: e.target.value })}
+                                                />
                                             </div>
                                         </div>
-                                        <div className="flex flex-col p-5">
-                                            <span className="text-2xl font-semibold">Booking with confidence</span>
-                                            <div className="flex gap-3">
-                                                <img src="/src/icons/blue-correct-48.png" alt="" className="w-[25px] h-[25px]" />
-                                                <span className="text-xl font-li">Your credit card details are safe via this secured payment form</span>
+
+                                        <div>
+                                            <div className="flex flex-col p-5 mt-5">
+                                                <span className="text-2xl font-semibold">We accept the following payment methods</span>
+                                                <div className="flex gap-3">
+                                                    <img src="/src/icons/visa-card-48.png" alt="" className="w-[60px] h-60px]" />
+                                                    <img src="/src/icons/mastercard-48.png" alt="" className="w-[60px] h-60px]" />
+                                                    <img src="/src/icons/jcb-48.png" alt="" className="w-[60px] h-60px]" />
+                                                    <img src="/src/icons/unionpay-48.png" alt="" className="w-[60px] h-60px]" />
+                                                </div>
+                                            </div>
+                                            <div className="flex flex-col p-5">
+                                                <span className="text-2xl font-semibold">Booking with confidence</span>
+                                                <div className="flex gap-3">
+                                                    <img src="/src/icons/blue-correct-48.png" alt="" className="w-[25px] h-[25px]" />
+                                                    <span className="text-xl font-li">Your credit card details are safe via this secured payment form</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
-                            </div>
+                            </>
 
                             <div className="flex flex-col p-5">
                                 <div className="flex flex-col">
                                     <div className="text-3xl font-li">Payment Slip</div>
-                                    <div className="text-[#BD7416] text-xl font-li py-3">Kasikorn Bank / Cheevadeee Hohel : xxx-x-xx99-x </div>
+                                    <div className="text-[#C18638] hover:text-[#BD7416] text-xl font-li py-3">Kasikorn Bank / Cheevadeee Hohel : xxx-x-xx99-x </div>
                                 </div>
                                 <PostSlipHomePage />
                             </div>
@@ -184,15 +204,18 @@ export default function PaymentPage() {
                             <ConditionsOfBooking />
 
                             {/* make a booking */}
-                            <Link
-                            // Open Modal reserve success and please log in to check Booking
-                            >
-                                <div className="flex justify-end px-10">
-                                    <button className="bg-[#C18638] hover:bg-[#BD7416] text-white text-xl px-5 py-3 w-80 rounded-md text-center font-li ">
-                                        MAKE A BOOKING
-                                    </button>
-                                </div>
-                            </Link>
+
+                            <div className="flex justify-end px-10">
+                                <button className="bg-[#C18638] hover:bg-[#BD7416] text-white text-xl px-5 py-3 w-80 rounded-md text-center font-li "
+                                    onClick={() => setIsOpen(true)}
+                                >
+                                    MAKE A BOOKING
+                                </button>
+                            </div>
+                            {/* // Open Modal reserve is successful,Please log in to check your Booking. */}
+                            <Modal title="Reserve" open={isOpen} onClose={() => setIsOpen(false)}>
+                                <PaymentBoonkingForm />
+                            </Modal>
                         </div>
                     </div>
 

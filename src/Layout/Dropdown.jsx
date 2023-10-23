@@ -11,8 +11,6 @@ export default function Dropdown() {
     const dropDrownE1 = useRef(null)
     const { logout, authUser } = useAuth();
 
-
-
     useEffect(() => {
         const handdleClickOutside = e => {
             if (!dropDrownE1.current.contains(e.target)) {
