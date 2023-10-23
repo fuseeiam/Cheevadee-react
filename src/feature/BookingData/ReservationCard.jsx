@@ -1,6 +1,9 @@
 import React from 'react'
+import { numberWithCommas } from '../../utils/numberWIthComma'
 
-export default function ReservationCard() {
+export default function ReservationCard({ room, bed, view, arrival, departure }) {
+    const stayOfDate = +((new Date(departure)).getDate() - (new Date(arrival)).getDate())
+    const totalPrice = isNaN(stayOfDate) ? room?.price : room?.price * stayOfDate
     return (
         <div className="bg-white w-[750px] h-[820px] rounded-md p-5 outline-none border border-gray-300 flex ">
 
@@ -30,27 +33,27 @@ export default function ReservationCard() {
 
                 {/* Traval date */}
                 <div className="flex p-5 text-xl gap-1">
-                    <div className="font-bold">2 nights :</div>
+                    <div className="font-bold">{stayOfDate || 1} nights :</div>
                     {/* ARRIVAL */}
-                    <div className="fond-li">09/11/2023</div>
+                    <div className="fond-li">{arrival || "Arrival"}</div>
                     <div className="fond-li">-</div>
                     {/* DEPARTURE */}
-                    <div className="fond-li">11/11/2023</div>
+                    <div className="fond-li">{departure || "Departure"}</div>
                 </div>
 
                 {/* room detail */}
                 <div className="bg-[#E2E2E2] w-[450px] h-[180px] rounded-md outline-none border border-gray-300 flex flex-col p-5 text-xl">
                     {/* Room Type */}
-                    <div>STANDRAD ROOM - No Window</div>
+                    <div>STANDRAD ROOM</div>
                     {/* details */}
-                    <div className="hover:text-[#BD7416] hover:underline font-semibold mt-2.5" >2 adults</div>
-                    <div className="hover:text-[#BD7416] hover:underline font-semibold mt-2.5" >2 twin beds</div>
+                    {/* <div className="hover:text-[#BD7416] hover:underline font-semibold mt-2.5" >{bed}</div>
+                    <div className="hover:text-[#BD7416] hover:underline font-semibold mt-2.5" >{view}</div> */}
                     <div className="flex justify-between">
                         <div className="text-[#C18638] hover:text-[#BD7416] hover:underline font-li mt-2.5" >view details / edit</div>
                         <div className="flex text-2xl font-semibold mt-1.5 gap-2">
                             <span>THB</span>
                             {/* price */}
-                            <span>2,450</span>
+                            <span>{numberWithCommas(room?.price || 0)}</span>
                         </div>
                     </div>
                 </div>
@@ -63,7 +66,7 @@ export default function ReservationCard() {
                         <div className="flex flex-col items-end  ">
                             <div className="flex gap-2">
                                 <span className="text-2xl font-semibold py-2">THB</span>
-                                <span className="text-4xl font-bold ">4,900</span>
+                                <span className="text-4xl font-bold ">{numberWithCommas(totalPrice || 0)}</span>
                             </div>
                             <span className="text-xl font-li">including all taxes and service charge</span>
                         </div>
@@ -75,7 +78,7 @@ export default function ReservationCard() {
                     <span>Pay now</span>
                     <div className="flex gap-2">
                         <span>THB</span>
-                        <span>4,900</span>
+                        <span>{numberWithCommas(totalPrice || 0)}</span>
                     </div>
                 </div>
                 <hr />

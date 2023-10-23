@@ -16,9 +16,6 @@ export default function UserHeader() {
         </Link>
         <div className="flex gap-4">
             <Dropdown />
-            {/* <Link to="/auth/booking">
-                <BookingButton />
-            </Link> */}
         </div>
 
     </header>

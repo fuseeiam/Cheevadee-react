@@ -26,7 +26,7 @@ const router = createBrowserRouter([
             { path: 'room', element: <RoomPage /> },
             { path: 'room/:roomType', element: <RoomTypePage /> },
             { path: 'booking', element: <BookingPage /> },
-            { path: 'booking/reserve', element: <PaymentPage /> },
+            { path: 'booking/reserve/:roomId', element: <PaymentPage /> },
             { path: 'dining', element: <DiningPage /> },
             { path: 'spa', element: <SpaPage /> },
             {

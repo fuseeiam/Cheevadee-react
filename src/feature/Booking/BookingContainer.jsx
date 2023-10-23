@@ -4,7 +4,6 @@ import StandardBookingCard from "../BookingRoomType/StandardBookingCard";
 // import JuniorSuiteBookingCard from "../BookingRoomType/JuniorSuiteBookingCard";
 import { useState, useEffect } from "react";
 import axios from "../../config/axios";
-import { data } from "autoprefixer";
 
 export default function BookingContainer() {
     const [allRoom, setAllRoom] = useState([]);
@@ -26,6 +25,7 @@ export default function BookingContainer() {
             {standardRoom.map((room) =>
                 <StandardBookingCard
                     key={room.id}
+                    roomId={room.id}
                     roomtype={room.roomtype}
                     picture={room.picture}
                     bed={room.bed}

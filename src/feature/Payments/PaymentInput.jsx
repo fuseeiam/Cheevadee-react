@@ -10,7 +10,7 @@ export default function PaymentInput({
         <input
             type={type}
             placeholder={placeholder}
-            className={`block w-full border rounded-md outline-none px-20 py-3 text-xl
+            className={`block w-full border rounded-md outline-none px-5 py-3 text-xl
             focus:ring
             ${hasError
                     ? 'border-red-500 focus:ring-red-300'

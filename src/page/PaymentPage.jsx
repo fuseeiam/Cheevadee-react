@@ -10,14 +10,19 @@ import BookingHeader from '../feature/BookingData/BookingHeader';
 import ReservationCard from '../feature/BookingData/ReservationCard';
 import Modal from '../components/Modal';
 import PaymentBoonkingForm from '../feature/Payments/PaymentBoonkingForm';
+import { useReserve } from "../contexts/ReserveRoomContext";
+import { useParams } from "react-router-dom";
 
 export default function PaymentPage() {
+    const { room, getRoomData } = useReserve();
+    const { roomId } = useParams()
     const [input, setInput] = useState({
         firstName: '',
         lastName: '',
-        mobile: ''
+        mobile: '',
+        arrival: '',
+        departure: ''
     });
-
     const { login } = useAuth();
 
     const handdleSubmitForm = e => {
@@ -29,6 +34,7 @@ export default function PaymentPage() {
 
     useEffect(() => {
         scrollToTop()
+        getRoomData(roomId)
     }, [])
     const [isOpen, setIsOpen] = useState(false);
 
@@ -60,7 +66,7 @@ export default function PaymentPage() {
                                                 <PaymentInput
                                                     placeholder=" "
                                                     value={input.firstName}
-                                                    onchange={e => setInput({ ...input, firstName: e.target.value })}
+                                                    onChange={e => setInput({ ...input, firstName: e.target.value })}
                                                 />
                                             </div>
 
@@ -69,7 +75,7 @@ export default function PaymentPage() {
                                                 <PaymentInput
                                                     placeholder=" "
                                                     value={input.lastName}
-                                                    onchange={e => setInput({ ...input, lastName: e.target.value })}
+                                                    onChange={e => setInput({ ...input, lastName: e.target.value })}
                                                 />
                                             </div>
 
@@ -78,7 +84,7 @@ export default function PaymentPage() {
                                                 <PaymentInput
                                                     placeholder=" "
                                                     value={input.mobile}
-                                                    onchange={e => setInput({ ...input, mobile: e.target.value })}
+                                                    onChange={e => setInput({ ...input, mobile: e.target.value })}
                                                 />
                                             </div>
 
@@ -88,28 +94,15 @@ export default function PaymentPage() {
                                             <div className="flex gap-5  ">
                                                 <div className="flex flex-col text-2xl font-semibold">
                                                     Arrival
-                                                    <input type="date" className="text-[#63635D] text-xl font-li rounded-md p-2 w-full h-[60px] outline-none border border-gray-300" />
+                                                    <input type="date" className="text-[#63635D] text-xl font-li rounded-md p-2 w-full h-[60px] outline-none border border-gray-300"
+                                                        value={input.arrival ?? (new Date()).getUTCDate()}
+                                                        onChange={e => setInput({ ...input, arrival: e.target.value })} />
                                                 </div>
                                                 <div className="flex flex-col text-2xl font-semibold" >
                                                     Departure
-                                                    <input type="date" className="text-[#63635D] text-xl font-li rounded-md p-2 w-full h-[60px] outline-none border border-gray-300" />
-                                                </div>
-                                                <div className="flex flex-col text-2xl font-semibold" >
-                                                    Adult(s)
-                                                    <select className="text-[#63635D] text-xl font-li rounded-md p-2 w-full h-[60px] outline-none border border-gray-300">
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                    </select>
-                                                </div>
-                                                <div className="flex flex-col text-2xl font-semibold" >
-                                                    Child(ren)
-                                                    <select className="text-[#63635D] text-xl font-li rounded-md p-2 w-full h-[60px] outline-none border border-gray-300">
-                                                        <option value="0">0</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                    </select>
+                                                    <input type="date" className="text-[#63635D] text-xl font-li rounded-md p-2 w-full h-[60px] outline-none border border-gray-300"
+                                                        value={input.departure}
+                                                        onChange={e => setInput({ ...input, departure: e.target.value })} />
                                                 </div>
                                             </div>
                                         </div>
@@ -145,7 +138,7 @@ export default function PaymentPage() {
                                                     type="number"
                                                     placeholder=" "
                                                     value={input.cardNumber}
-                                                    onchange={e => setInput({ ...input, cardNumber: e.target.value })}
+                                                    onChange={e => setInput({ ...input, cardNumber: e.target.value })}
                                                 />
                                             </div>
                                             <div className="mt-5">
@@ -154,7 +147,7 @@ export default function PaymentPage() {
                                                     type="text"
                                                     placeholder=" "
                                                     value={input.cardName}
-                                                    onchange={e => setInput({ ...input, cardName: e.target.value })}
+                                                    onChange={e => setInput({ ...input, cardName: e.target.value })}
                                                 />
                                             </div>
                                             <div className="mt-5">
@@ -163,7 +156,7 @@ export default function PaymentPage() {
                                                     type="number"
                                                     placeholder="MM/YY"
                                                     value={input.expiryDate}
-                                                    onchange={e => setInput({ ...input, expiryDate: e.target.value })}
+                                                    onChange={e => setInput({ ...input, expiryDate: e.target.value })}
                                                 />
                                             </div>
                                         </div>
@@ -221,7 +214,8 @@ export default function PaymentPage() {
 
 
                     {/* Reservation Summary */}
-                    <ReservationCard />
+
+                    <ReservationCard room={room} arrival={input.arrival} departure={input.departure} />
 
                 </div>
             </div>

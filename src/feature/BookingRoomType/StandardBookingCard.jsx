@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
-export default function StandardBookingCard({ roomtype, picture, bed, view, roomSize, price }) {
+export default function StandardBookingCard({ roomId, roomtype, picture, bed, view, roomSize, price }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (<div>
@@ -98,7 +98,7 @@ export default function StandardBookingCard({ roomtype, picture, bed, view, room
                   <span>tax & fees included</span>
                 </div>
               </div>
-              <Link to="reserve">
+              <Link to={"reserve/" + roomId}>
                 <button className="bg-[#C18638] hover:bg-[#BD7416] text-white text-xl py-4 px-10 rounded-md text-center font-li">
                   RESERVE
                 </button>
