@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import Header from "../Layout/Header";
+import UserHeader from "../Layout/auth/UserHeader";
 import FootingPage from "../feature/ProfilePage/footingPage";
 import { scrollToTop } from "../utils/scrollToTop";
 
@@ -11,7 +11,7 @@ export default function SpaPage() {
     return (
         <div>
             <div>
-                <Header />
+                <UserHeader />
             </div>
 
             {/* cover spa */}

@@ -3,7 +3,7 @@ import { ImageIcon } from '../../icons';
 import { useState, useRef } from 'react';
 
 
-export default function PostSlipForm({ onSuccess, onSubmit }) {
+export default function PostSlipForm({ onSuccess, onSubmit, input, setInput, setIsOpen }) {
     const [file, setFile] = useState(null);
     const [loading, setLoading] = useState(false);
     const fileEl = useRef(null);
@@ -42,11 +42,14 @@ export default function PostSlipForm({ onSuccess, onSubmit }) {
                     ref={fileEl}
                     onChange={e => {
                         if (e.target.files[0]) {
+                            setInput({ ...input, paymentSlip: e.target.files[0] }
+                            )
+
                             setFile(e.target.files[0]);
                         }
                     }}
                 />
-                <CreateButton>Upload slip</CreateButton>
+                <CreateButton onClick={() => { setIsOpen(false) }}>Upload slip</CreateButton>
             </form>
         </>
     )

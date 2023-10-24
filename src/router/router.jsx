@@ -49,9 +49,14 @@ const router = createBrowserRouter([
             { path: 'account/:bookingID', element: <MyBooking /> },
             { path: 'room', element: <RoomPage /> },
             { path: 'room/:roomType', element: <RoomTypePage /> },
+            { path: 'dining', element: <DiningPage /> },
+            { path: 'dining/booking', element: <BookingPage /> },
+            { path: 'dining/booking/reserve/:roomId', element: <PaymentPage /> },
             { path: 'spa', element: <SpaPage /> },
+            { path: 'spa/booking', element: <BookingPage /> },
+            { path: 'spa/booking/reserve/:roomId', element: <PaymentPage /> },
             { path: 'booking', element: <BookingPage /> },
-            { path: 'booking/reserve', element: <PaymentPage /> },
+            { path: 'booking/reserve/:roomId', element: <PaymentPage /> },
             { path: 'booking/mybooking/:userId', element: <MyBooking /> }
         ]
     },

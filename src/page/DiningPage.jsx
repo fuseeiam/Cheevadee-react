@@ -1,4 +1,4 @@
-import Header from "../Layout/Header";
+import UserHeader from "../Layout/auth/UserHeader";
 import FootingPage from "../feature/ProfilePage/footingPage";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
@@ -13,7 +13,7 @@ export default function DiningPage() {
     return (
         <div>
             <div>
-                <Header />
+                <UserHeader />
             </div>
 
             {/* cover dining */}

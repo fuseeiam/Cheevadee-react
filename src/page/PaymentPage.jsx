@@ -12,6 +12,8 @@ import Modal from '../components/Modal';
 import PaymentBoonkingForm from '../feature/Payments/PaymentBoonkingForm';
 import { useReserve } from "../contexts/ReserveRoomContext";
 import { useParams } from "react-router-dom";
+import axios from "../config/axios";
+import { toast } from "react-toastify";
 
 export default function PaymentPage() {
     const { room, getRoomData } = useReserve();
@@ -23,6 +25,25 @@ export default function PaymentPage() {
         arrival: '',
         departure: ''
     });
+
+    const handleSubmitBooking = async () => {
+        try {
+            const formData = new FormData();
+
+            for (let key in input) {
+                if (input[key]) {
+                    formData.append(`${key}`, input[key]);
+                }
+                // console.log(formData);
+            } console.log(formData);
+            axios.post('/booking', formData)
+
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
+
     const { login } = useAuth();
 
     const handdleSubmitForm = e => {
@@ -36,6 +57,7 @@ export default function PaymentPage() {
         scrollToTop()
         getRoomData(roomId)
     }, [])
+
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -188,7 +210,7 @@ export default function PaymentPage() {
                                     <div className="text-3xl font-li">Payment Slip</div>
                                     <div className="text-[#C18638] hover:text-[#BD7416] text-xl font-li py-3">Kasikorn Bank / Cheevadeee Hohel : xxx-x-xx99-x </div>
                                 </div>
-                                <PostSlipHomePage />
+                                <PostSlipHomePage input={input} setInput={setInput} />
                             </div>
 
 
@@ -200,7 +222,10 @@ export default function PaymentPage() {
 
                             <div className="flex justify-end px-10">
                                 <button className="bg-[#C18638] hover:bg-[#BD7416] text-white text-xl px-5 py-3 w-80 rounded-md text-center font-li "
-                                    onClick={() => setIsOpen(true)}
+                                    onClick={() => {
+                                        handleSubmitBooking()
+                                        setIsOpen(true)
+                                    }}
                                 >
                                     MAKE A BOOKING
                                 </button>

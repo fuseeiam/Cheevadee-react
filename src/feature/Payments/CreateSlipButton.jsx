@@ -14,7 +14,7 @@ function Button({ children, onClick }) {
     )
 }
 
-export default function CreateSlipButton({ createPost }) {
+export default function CreateSlipButton({ createPost, input, setInput }) {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -29,7 +29,7 @@ export default function CreateSlipButton({ createPost }) {
                 maxWidth={32}
                 onClose={() => setIsOpen(false)}
             >
-                <PostSlipForm onSuccess={() => setIsOpen(false)} onSubmit={createPost} />
+                <PostSlipForm onSuccess={() => setIsOpen(false)} onSubmit={createPost} input={input} setInput={setInput} setIsOpen={setIsOpen} />
             </Modal>
         </div>
     )
