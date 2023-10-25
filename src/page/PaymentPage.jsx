@@ -35,8 +35,10 @@ export default function PaymentPage() {
                     formData.append(`${key}`, input[key]);
                 }
                 // console.log(formData);
-            } console.log(formData);
-            axios.post('/booking', formData)
+            }
+            formData.append('data', JSON.stringify({ bookArrival: input.arrival, bookDeparture: input.departure, roomId: roomId }))
+            console.log(formData);
+            axios.post('/booking/reserve', formData)
 
         }
         catch (error) {

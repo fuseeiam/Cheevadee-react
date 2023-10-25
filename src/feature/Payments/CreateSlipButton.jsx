@@ -24,7 +24,7 @@ export default function CreateSlipButton({ createPost, input, setInput }) {
             </Button>
 
             <Modal
-                title="Create post"
+                title="Upload Slip"
                 open={isOpen}
                 maxWidth={32}
                 onClose={() => setIsOpen(false)}

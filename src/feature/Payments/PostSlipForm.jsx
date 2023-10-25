@@ -14,8 +14,8 @@ export default function PostSlipForm({ onSuccess, onSubmit, input, setInput, set
             if (file) {
                 formData.append('image', file);
             }
-            setLoading(true)
-            await onSubmit(formData);
+            // setLoading(true)
+            // await onSubmit(formData);
             onSuccess();
         } catch (err) {
             console.log(err);
@@ -44,7 +44,7 @@ export default function PostSlipForm({ onSuccess, onSubmit, input, setInput, set
                         if (e.target.files[0]) {
                             setInput({ ...input, paymentSlip: e.target.files[0] }
                             )
-
+                            console.log(e.target.files[0]);
                             setFile(e.target.files[0]);
                         }
                     }}
