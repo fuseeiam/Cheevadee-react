@@ -35,7 +35,7 @@ export default function BookingCardHistory({ detail }) {
                             <div className='flex flex-col'>
                                 {/* <span className='text-xl font-li mt-3'><img src={detail.room.picture} alt="" /></span> */}
 
-                                <span className='text-xl font-li'>{date}{date > 1 ? " nights" : "night"} {detail.room.bed}, {detail.room.view}</span>
+                                <span className='text-xl font-li'>{date}{date > 1 ? " nights" : "night"}, {detail.room.bed}, {detail.room.view}</span>
                                 <span className='text-xl font-li'>{arrival}</span>
                                 <span className='text-xl font-li'>{departure}</span>
                                 <span className='text-xl font-li'>{detail.user.firstName} {detail.user.lastName}</span>
@@ -83,7 +83,7 @@ export default function BookingCardHistory({ detail }) {
                             <h2 className=' text-xl font-semibold mt-7'>When you arrive, present a photo ID that matches the guest name below.</h2>
                             <div className='flex flex-col text-xl font-li'>
                                 <span>Provide this number at check-in :</span>
-                                <span>Check-in number : 312630043</span>
+                                <span>Check-in number : {detail.id}</span>
                             </div>
                         </div>
                     </div>
@@ -91,7 +91,7 @@ export default function BookingCardHistory({ detail }) {
 
                 <div className='flex justify-end text-4xl font-bold gap-5'>
                     <span >THB</span>
-                    <h2>{detail.room.price}</h2>
+                    <h2>{detail.total_price}</h2>
                 </div>
             </div>
         </div>

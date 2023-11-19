@@ -14,6 +14,7 @@ import { useReserve } from "../contexts/ReserveRoomContext";
 import { useParams } from "react-router-dom";
 import axios from "../config/axios";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 export default function PaymentPage() {
     const { room, getRoomData, price } = useReserve();
@@ -27,6 +28,8 @@ export default function PaymentPage() {
     });
     const [file, setFile] = useState(null);
 
+    const navigate = useNavigate();
+
     const handleSubmitBooking = async () => {
         try {
             const formData = new FormData();
@@ -37,8 +40,9 @@ export default function PaymentPage() {
             //     }
             //     // console.log(formData);
             // }
-            formData.append('data', JSON.stringify({ bookArrival: input.arrival, bookDeparture: input.departure, roomId: roomId, price: price }))
-            axios.post('/booking/reserve', formData)
+            formData.append('data', JSON.stringify({ bookArrival: input.arrival, bookDeparture: input.departure, roomId: roomId, paymentSlip: file, total_price: price }))
+            await axios.post('/booking/reserve', formData)
+            navigate("/")
 
         }
         catch (error) {
