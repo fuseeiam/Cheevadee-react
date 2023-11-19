@@ -1,14 +1,27 @@
 import React from 'react'
 import { EllipsisIcon } from '../../icons';
 import useDropdown from '../../hooks/use-dropdown';
+import { useReserve } from '../../contexts/ReserveRoomContext';
+import axios from '../../config/axios';
 
 
-export default function PostSlipHeader({ postObj, deletePost }) {
+export default function PostSlipHeader({ postObj }) {
     const { dropDownE1, isOpen, setIsOpen } = useDropdown();
+
+    const { setAllPost } = useReserve()
+
+
+    const deletePost = async (postId) => {
+        try {
+            await axios.delete(`/post/${postId}`);
+            setAllPost(allPost.filter(el => el.id !== postId));
+        } catch (err) {
+            console.log(err);
+        }
+    };
     const handleClickDelete = () => {
         deletePost(postObj.id);
     };
-
     return (
         <div className="flex gap-4">
             {authUser.id === postObj.user.id && (

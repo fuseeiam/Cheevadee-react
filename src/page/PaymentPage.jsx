@@ -16,7 +16,7 @@ import axios from "../config/axios";
 import { toast } from "react-toastify";
 
 export default function PaymentPage() {
-    const { room, getRoomData } = useReserve();
+    const { room, getRoomData, price } = useReserve();
     const { roomId } = useParams()
     const [input, setInput] = useState({
         firstName: '',
@@ -25,19 +25,19 @@ export default function PaymentPage() {
         arrival: '',
         departure: ''
     });
+    const [file, setFile] = useState(null);
 
     const handleSubmitBooking = async () => {
         try {
             const formData = new FormData();
 
-            for (let key in input) {
-                if (input[key]) {
-                    formData.append(`${key}`, input[key]);
-                }
-                // console.log(formData);
-            }
-            formData.append('data', JSON.stringify({ bookArrival: input.arrival, bookDeparture: input.departure, roomId: roomId }))
-            console.log(formData);
+            // for (let key in input) {
+            //     if (input[key]) {
+            //         formData.append(`${key}`, input[key]);
+            //     }
+            //     // console.log(formData);
+            // }
+            formData.append('data', JSON.stringify({ bookArrival: input.arrival, bookDeparture: input.departure, roomId: roomId, price: price }))
             axios.post('/booking/reserve', formData)
 
         }
@@ -212,7 +212,8 @@ export default function PaymentPage() {
                                     <div className="text-3xl font-li">Payment Slip</div>
                                     <div className="text-[#C18638] hover:text-[#BD7416] text-xl font-li py-3">Kasikorn Bank / Cheevadeee Hohel : xxx-x-xx99-x </div>
                                 </div>
-                                <PostSlipHomePage input={input} setInput={setInput} />
+                                {file && <img src={URL.createObjectURL(file)} alt="file" />}
+                                <PostSlipHomePage input={input} setInput={setInput} file={file} setFile={setFile} />
                             </div>
 
 

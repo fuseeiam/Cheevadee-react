@@ -1,14 +1,15 @@
 import React from 'react'
 import { createContext, useEffect } from 'react';
 import { useState } from 'react';
-import { useAuth } from '../hooks/use-auth';
 import * as reserveService from '../api/reserveApi';
 import { useContext } from 'react';
 
 const ReserveRoomContext = createContext();
 
 function ReserveRoomContextProvider({ children }) {
-    const [room, setRoom] = useState()
+    const [room, setRoom] = useState([]);
+    const [allPost, setAllPost] = useState([]);
+    const [price, setPrice] = useState(0)
     const getRoomData = async (roomId) => {
         try {
             const res = await reserveService.getRoomData(roomId);
@@ -22,7 +23,7 @@ function ReserveRoomContextProvider({ children }) {
         <ReserveRoomContext.Provider
             value={{
                 getRoomData,
-                room
+                room, allPost, setAllPost, price, setPrice
 
             }}
         >

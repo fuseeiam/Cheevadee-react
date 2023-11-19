@@ -3,10 +3,17 @@ import { ImageIcon } from '../../icons';
 import { useState, useRef } from 'react';
 
 
-export default function PostSlipForm({ onSuccess, onSubmit, input, setInput, setIsOpen }) {
-    const [file, setFile] = useState(null);
+export default function PostSlipForm({ onSuccess, input, setInput, setIsOpen, file, setFile }) {
+
     const [loading, setLoading] = useState(false);
     const fileEl = useRef(null);
+
+    const createPost = async (data) => {
+        const res = await axios.post('/post', data);
+        const newPost = res.data.post;
+        setAllPost([newPost, ...allPost]);
+    };
+
     const handleSubmitForm = async e => {
         try {
             e.preventDefault();
@@ -15,6 +22,7 @@ export default function PostSlipForm({ onSuccess, onSubmit, input, setInput, set
                 formData.append('image', file);
             }
             // setLoading(true)
+            createPost(formData)
             // await onSubmit(formData);
             onSuccess();
         } catch (err) {
@@ -23,6 +31,7 @@ export default function PostSlipForm({ onSuccess, onSubmit, input, setInput, set
             setLoading(false)
         }
     };
+
 
     return (
         <>

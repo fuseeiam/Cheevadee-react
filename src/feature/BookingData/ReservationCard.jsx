@@ -1,9 +1,18 @@
 import React from 'react'
 import { numberWithCommas } from '../../utils/numberWIthComma'
+import { useReserve } from '../../contexts/ReserveRoomContext'
 
 export default function ReservationCard({ room, bed, view, arrival, departure }) {
+    const { price, setPrice } = useReserve()
     const stayOfDate = +((new Date(departure)).getDate() - (new Date(arrival)).getDate())
-    const totalPrice = isNaN(stayOfDate) ? room?.price : room?.price * stayOfDate
+
+    const sumPrice = () => {
+        const totalPrice = isNaN(stayOfDate) ? room?.price : room?.price * stayOfDate
+        const price = numberWithCommas(totalPrice || 0)
+        setPrice(price)
+    }
+    sumPrice()
+
     return (
         <div className="bg-white w-[750px] h-[820px] rounded-md p-5 outline-none border border-gray-300 flex ">
 
@@ -66,7 +75,7 @@ export default function ReservationCard({ room, bed, view, arrival, departure })
                         <div className="flex flex-col items-end  ">
                             <div className="flex gap-2">
                                 <span className="text-2xl font-semibold py-2">THB</span>
-                                <span className="text-4xl font-bold ">{numberWithCommas(totalPrice || 0)}</span>
+                                <span className="text-4xl font-bold ">{price}</span>
                             </div>
                             <span className="text-xl font-li">including all taxes and service charge</span>
                         </div>
@@ -78,7 +87,7 @@ export default function ReservationCard({ room, bed, view, arrival, departure })
                     <span>Pay now</span>
                     <div className="flex gap-2">
                         <span>THB</span>
-                        <span>{numberWithCommas(totalPrice || 0)}</span>
+                        <span>{price}</span>
                     </div>
                 </div>
                 <hr />
