@@ -1,6 +1,6 @@
 import { useState } from "react"
 import CancelBookingModal from "./userModal/CancelBookingModal"
-import EditBookingModal from "../components/userModal/EditBookingModal"
+// import EditBookingModal from "../components/userModal/EditBookingModal"
 
 
 export default function BookingCardHistory({ detail }) {
@@ -19,12 +19,12 @@ export default function BookingCardHistory({ detail }) {
 
     return (
         <div className='  bg-white w-full h-full rounded-md p-5 outline-none border border-gray-300  '>
-            <div className='flex justify-between border border-green-600'>
+            <div className='flex justify-between '>
                 <div className='flex gap-5'>
                     <div>
-                        <img src={detail.room.picture} alt="bookingRoom" className='p-5 w-[400px]  rounded-md ' />
+                        <img src={detail.room.picture} alt="bookingRoom" className='p-5 w-[400px] rounded-md ' />
                     </div>
-                    <div className=' flex flex-col border'>
+                    <div className=' flex flex-col'>
                         <h2 className='text-2xl font-bold '>{detail.room.roomtype}</h2>
                         <span className='flex text-xl font-li mt-3 justify-between'>
                             <div>{arrival} - {departure}</div>
@@ -53,7 +53,7 @@ export default function BookingCardHistory({ detail }) {
                     </div>
                 </div>
 
-                <div className='flex-flex-col border border-gray-500'>
+                <div className='flex-flex-col'>
                     <div className='flex justify-center gap-14 '>
                         <div className='flex flex-col items-center'>
                             <img src="/src/icons/circle-correct-50.png" alt="PENDING" className='w-[40px] h-[40px]' />
@@ -102,18 +102,18 @@ export default function BookingCardHistory({ detail }) {
                         <span >THB</span>
                         <h2>{detail.total_price}</h2>
                     </div>
-                    <div className="p-5 mt-40 flex flex-col ">
-                        <EditBookingModal setIsOpen={setIsEditBookingOpen} open={isEditBookingOpen} />
+                    <div className="mt-10 flex flex-col ">
+                        {/* <EditBookingModal setIsOpen={setIsEditBookingOpen} open={isEditBookingOpen} />
                         <button onClick={() => setIsEditBookingOpen(true)}
                             className="bg-[#C18638] hover:bg-[#BD7416] text-white text-center font-li  h-15 px-20 py-4 rounded-md flex justify-center">
                             EDIT
-                        </button>
+                        </button> */}
 
-                        <button onClick={() => setIsDeleteOpen(true)}
+                        <button onClick={() => setIsCancelBookingOpen(true)}
                             className="bg-[#C18638] hover:bg-[#BD7416] text-white text-center font-li  h-15 px-20 py-4 mt-5 rounded-md flex justify-center">
                             CANCEL
                         </button>
-                        {isCancelBookingOpen && <CancelBookingModal setIsOpen={setIsCancelBookingOpen} />}
+                        <CancelBookingModal setIsOpen={setIsCancelBookingOpen} open={isCancelBookingOpen} />
                     </div>
                 </div>
 

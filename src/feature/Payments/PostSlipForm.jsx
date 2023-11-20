@@ -1,42 +1,21 @@
+import axios from '../../config/axios';
 import Loading from '../../components/Loading';
 import { ImageIcon } from '../../icons';
 import { useState, useRef } from 'react';
 
 
-export default function PostSlipForm({ onSuccess, input, setInput, setIsOpen, file, setFile }) {
+export default function PostSlipForm({ input, setInput, isOpen, setIsOpen, file, setFile }) {
 
     const [loading, setLoading] = useState(false);
     const fileEl = useRef(null);
 
-    const createPost = async (data) => {
-        const res = await axios.post('/post', data);
-        const newPost = res.data.post;
-        setAllPost([newPost, ...allPost]);
-    };
 
-    const handleSubmitForm = async e => {
-        try {
-            e.preventDefault();
-            const formData = new FormData();
-            if (file) {
-                formData.append('image', file);
-            }
-            // setLoading(true)
-            createPost(formData)
-            // await onSubmit(formData);
-            onSuccess();
-        } catch (err) {
-            console.log(err);
-        } finally {
-            setLoading(false)
-        }
-    };
 
 
     return (
         <>
             {loading && <Loading />}
-            <form className="flex flex-col gap-4" onSubmit={handleSubmitForm}>
+            {isOpen && < div className="flex flex-col gap-4" >
                 {file ? (
                     <div onClick={() => fileEl.current.click()} className="cursor-pointer">
                         <img src={URL.createObjectURL(file)} alt="post" />
@@ -58,19 +37,13 @@ export default function PostSlipForm({ onSuccess, input, setInput, setIsOpen, fi
                         }
                     }}
                 />
-                <CreateButton onClick={() => { setIsOpen(false) }}>Upload slip</CreateButton>
-            </form>
+                <button className="bg-[#C18638] hover:bg-[#BD7416] text-white px-3 py-1.5 w-full rounded-lg font-semibold" onClick={() => setIsOpen(false)}>Upload slip</button>
+            </ div>}
         </>
     )
 }
 
-function CreateButton({ children }) {
-    return (
-        <button className="bg-[#C18638] hover:bg-[#BD7416] text-white px-3 py-1.5 w-full rounded-lg font-semibold">
-            {children}
-        </button>
-    );
-}
+
 
 function SelectImageButton({ onClick }) {
     return (

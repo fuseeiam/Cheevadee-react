@@ -4,12 +4,16 @@ import Avatar from '../components/Avatar';
 import { useEffect, useRef, useState } from 'react';
 import { useAuth } from '../hooks/use-auth';
 import { RightFromBracketIcon, PenIcon } from "../icons";
+import EditProfileModal from './auth/EditProfileModal';
 
 
 export default function Dropdown() {
     const [isOpen, setIsOpen] = useState(false);
     const dropDrownE1 = useRef(null)
     const { logout, authUser } = useAuth();
+    console.log(authUser);
+
+    const [isEditOpen, setIsEditOpen] = useState(false);
 
     useEffect(() => {
         const handdleClickOutside = e => {
@@ -44,14 +48,18 @@ export default function Dropdown() {
 
                     <hr className='m-2 border' />
 
-                    <Link to=" " onClick={() => setIsOpen(false)}>
-                        <div className='flex gap-4 p-2 items-center cursor-pointer hover:bg-gray-100 rounded-xl'>
-                            <div>
-                                <PenIcon />
-                            </div>
-                            <div className="font-semibold text-sm">Edit Profile</div>
+
+                    <div className='flex gap-4 p-2 items-center cursor-pointer hover:bg-gray-100 rounded-xl' onClick={() => setIsEditOpen(true)}>
+                        <div>
+                            <PenIcon />
                         </div>
-                    </Link>
+                        <div className="font-semibold text-sm"
+
+                        >
+                            Edit Profile</div>
+                    </div>
+                    <EditProfileModal open={isEditOpen} setEditOpen={setIsEditOpen} />
+
 
                     <div className='flex gap-4 p-2 items-center cursor-pointer hover:bg-gray-100 rounded-xl'
                         onClick={logout}

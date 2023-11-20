@@ -29,7 +29,7 @@ export default function CreateSlipButton({ input, setInput, file, setFile }) {
                 maxWidth={32}
                 onClose={() => setIsOpen(false)}
             >
-                <PostSlipForm onSuccess={() => setIsOpen(false)} input={input} setInput={setInput} setIsOpen={setIsOpen} file={file} setFile={setFile} />
+                <PostSlipForm input={input} setInput={setInput} isOpen={isOpen} setIsOpen={setIsOpen} file={file} setFile={setFile} />
             </Modal>
         </div>
     )

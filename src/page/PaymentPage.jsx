@@ -1,6 +1,5 @@
 import { useState } from "react";
 import PaymentInput from "../feature/Payments/PaymentInput";
-import CreditInput from "../feature/Payments/CreditInput";
 import { useAuth } from "../hooks/use-auth";
 import { useEffect } from "react";
 import { scrollToTop } from "../utils/scrollToTop";
@@ -20,29 +19,29 @@ export default function PaymentPage() {
     const { room, getRoomData, price } = useReserve();
     const { roomId } = useParams()
     const [input, setInput] = useState({
-        firstName: '',
-        lastName: '',
-        mobile: '',
         arrival: '',
-        departure: ''
+        departure: '',
+
     });
     const [file, setFile] = useState(null);
 
-    const navigate = useNavigate();
+
 
     const handleSubmitBooking = async () => {
         try {
             const formData = new FormData();
 
-            // for (let key in input) {
-            //     if (input[key]) {
-            //         formData.append(`${key}`, input[key]);
-            //     }
-            //     // console.log(formData);
-            // }
-            formData.append('data', JSON.stringify({ bookArrival: input.arrival, bookDeparture: input.departure, roomId: roomId, paymentSlip: file, total_price: price }))
-            await axios.post('/booking/reserve', formData)
-            navigate("/")
+
+            if (file) {
+                formData.append("arrival", input.arrival)
+                formData.append("departure", input.departure)
+                formData.append("total_price", price)
+                formData.append("paymentSlip", file)
+                formData.append("roomId", roomId)
+            }
+            // formData.append('data', JSON.stringify({ bookArrival: input.arrival, bookDeparture: input.departure, roomId: roomId, paymentSlip: file, total_price: price }))
+            const response = await axios.post('/booking/reserve', formData)
+            setIsOpen(true)
 
         }
         catch (error) {
@@ -52,12 +51,12 @@ export default function PaymentPage() {
 
     const { login } = useAuth();
 
-    const handdleSubmitForm = e => {
-        e.preventDefault();
-        login(input).catch(err => {
-            toast.error(err.response.data.message)
-        })
-    };
+    // const handdleSubmitForm = e => {
+    //     e.preventDefault();
+    //     login(input).catch(err => {
+    //         toast.error(err.response.data.message)
+    //     })
+    // };
 
     useEffect(() => {
         scrollToTop()
@@ -85,7 +84,7 @@ export default function PaymentPage() {
                                         <h1 className="text-4xl font-li">Enter your details</h1>
                                     </div>
                                 </div>
-                                <form className="grid gap-4" onSubmit={handdleSubmitForm}>
+                                <div className="grid gap-4" >
                                     <div className="flex flex-col">
 
                                         <div className="flex gap-5 p-5">
@@ -136,7 +135,7 @@ export default function PaymentPage() {
                                         </div>
 
                                     </div>
-                                </form>
+                                </div>
                             </div>
 
 
@@ -231,7 +230,6 @@ export default function PaymentPage() {
                                 <button className="bg-[#C18638] hover:bg-[#BD7416] text-white text-xl px-5 py-3 w-80 rounded-md text-center font-li "
                                     onClick={() => {
                                         handleSubmitBooking()
-                                        setIsOpen(true)
                                     }}
                                 >
                                     MAKE A BOOKING
