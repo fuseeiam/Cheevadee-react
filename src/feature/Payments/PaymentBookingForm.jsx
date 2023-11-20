@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../hooks/use-auth";
 
-export default function PaymentBoonkingForm() {
+export default function PaymentBookingForm() {
     const [isOpen, setIsOpen] = useState(false);
     const { authUser } = useAuth();
 

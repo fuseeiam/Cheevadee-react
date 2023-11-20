@@ -91,14 +91,14 @@ export default function ReservationCard({ room, bed, view, arrival, departure })
                         <span>{sumPrice}</span>
                     </div>
                 </div>
-                <hr />
+                {/* <hr />
                 <div className="flex justify-between p-5 text-2xl font-li">
                     <span>Pay at the hotel</span>
                     <div className="flex gap-2">
                         <span>THB</span>
                         <span>0</span>
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     )

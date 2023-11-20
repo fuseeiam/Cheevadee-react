@@ -1,3 +1,8 @@
+import { useState } from "react"
+import CancelBookingModal from "./userModal/CancelBookingModal"
+import EditBookingModal from "../components/userModal/EditBookingModal"
+
+
 export default function BookingCardHistory({ detail }) {
     const arrival = detail.arrival.slice(0, 10)
     const departure = detail.departure.slice(0, 10)
@@ -7,6 +12,10 @@ export default function BookingCardHistory({ detail }) {
         return endDate - startDate
     }
     const date = calDate(arrival, departure)
+
+    const [isEditBookingOpen, setIsEditBookingOpen] = useState(false);
+    const [isCancelBookingOpen, setIsCancelBookingOpen] = useState(false);
+
 
     return (
         <div className='  bg-white w-full h-full rounded-md p-5 outline-none border border-gray-300  '>
@@ -55,13 +64,13 @@ export default function BookingCardHistory({ detail }) {
                             <span className='text-[#21395D] text-xl font-li'>Awaiting</span>
                         </div>
                         <div>
-                            {/* Admin is ckecking */}
+
                             {/* <div className='flex flex-col items-center'>
                         <img src="/src/icons/circle-gray-correct-50.png" alt=" CHECKING" className='w-[40px] h-[40px]' />
                         <span className='text-[#63635D] text-xl font-li'>Confirmed</span>
                     </div> */}
 
-                            {/* Admin is completed */}
+
                             <div className='flex flex-col items-center'>
                                 <img src="/src/icons/circle-correct-50.png" alt="COMPLETED" className='w-[40px] h-[40px]' />
                                 <span className='text-[#21395D] text-xl font-li'>Confirmed</span>
@@ -88,11 +97,26 @@ export default function BookingCardHistory({ detail }) {
                         </div>
                     </div>
                 </div>
+                <div>
+                    <div className='flex justify-end text-4xl font-bold gap-5'>
+                        <span >THB</span>
+                        <h2>{detail.total_price}</h2>
+                    </div>
+                    <div className="p-5 mt-40 flex flex-col ">
+                        <EditBookingModal setIsOpen={setIsEditBookingOpen} open={isEditBookingOpen} />
+                        <button onClick={() => setIsEditBookingOpen(true)}
+                            className="bg-[#C18638] hover:bg-[#BD7416] text-white text-center font-li  h-15 px-20 py-4 rounded-md flex justify-center">
+                            EDIT
+                        </button>
 
-                <div className='flex justify-end text-4xl font-bold gap-5'>
-                    <span >THB</span>
-                    <h2>{detail.total_price}</h2>
+                        <button onClick={() => setIsDeleteOpen(true)}
+                            className="bg-[#C18638] hover:bg-[#BD7416] text-white text-center font-li  h-15 px-20 py-4 mt-5 rounded-md flex justify-center">
+                            CANCEL
+                        </button>
+                        {isCancelBookingOpen && <CancelBookingModal setIsOpen={setIsCancelBookingOpen} />}
+                    </div>
                 </div>
+
             </div>
         </div>
     )

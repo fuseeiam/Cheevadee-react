@@ -9,7 +9,7 @@ import ConditionsOfBooking from '../feature/BookingData/ConditionsOfBooking';
 import BookingHeader from '../feature/BookingData/BookingHeader';
 import ReservationCard from '../feature/BookingData/ReservationCard';
 import Modal from '../components/Modal';
-import PaymentBoonkingForm from '../feature/Payments/PaymentBoonkingForm';
+import PaymentBookingForm from '../feature/Payments/PaymentBookingForm';
 import { useReserve } from "../contexts/ReserveRoomContext";
 import { useParams } from "react-router-dom";
 import axios from "../config/axios";
@@ -144,11 +144,11 @@ export default function PaymentPage() {
                             <>
                                 <div className="flex flex-col  p-5">
                                     <div className="flex justify-start gap-5">
-                                        <img src="/src/icons/blue-lock-30.png" alt="lock" className="w-[40px] h-[40px]" />
-                                        <h1 className="text-4xl font-li">Select a payment method</h1>
+                                        {/* <img src="/src/icons/blue-lock-30.png" alt="lock" className="w-[40px] h-[40px]" /> */}
+                                        <h1 className="text-4xl font-li">Payment method</h1>
                                     </div>
                                 </div>
-                                <div className="bg-white w-full h-[450px] rounded-xl px-5 p-5 outline-none  border-[#21395D] border-8 flex flex-col">
+                                {/* <div className="bg-white w-full h-[450px] rounded-xl px-5 p-5 outline-none  border-[#21395D] border-8 flex flex-col">
                                     <div className="flex justify-between">
                                         <div className="flex gap-3">
                                             <img src="/src/icons/credit-card-30.png" alt="credit card" className="w-[40px] h-[40px]" />
@@ -208,7 +208,7 @@ export default function PaymentPage() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
                             </>
 
                             <div className="flex flex-col p-5">
@@ -239,7 +239,7 @@ export default function PaymentPage() {
                             </div>
                             {/* // Open Modal reserve is successful,Please log in to check your Booking. */}
                             <Modal title="Reserve" open={isOpen} onClose={() => setIsOpen(false)}>
-                                <PaymentBoonkingForm />
+                                <PaymentBookingForm />
                             </Modal>
                         </div>
                     </div>
