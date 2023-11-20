@@ -58,7 +58,10 @@ export default function Dropdown() {
                         >
                             Edit Profile</div>
                     </div>
+
+
                     <EditProfileModal open={isEditOpen} setIsOpen={setIsEditOpen} />
+
 
 
                     <div className='flex gap-4 p-2 items-center cursor-pointer hover:bg-gray-100 rounded-xl'
