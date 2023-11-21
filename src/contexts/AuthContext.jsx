@@ -9,6 +9,7 @@ export default function AuthContextProvider({ children }) {
 
     const [initialLoading, setInitialLoading] = useState(true);
 
+
     useEffect(() => {
         if (getAccessToken()) {
             axios.get('/auth/me').then(res => {
@@ -25,8 +26,12 @@ export default function AuthContextProvider({ children }) {
     const login = async credential => {
 
         const res = await axios.post('/auth/login', credential);
+        const user = res.data.user
         addAccessToken(res.data.accessToken);
-        setAuthUser(res.data.user);
+        setAuthUser(user);
+        return user
+
+
 
     };
 
@@ -54,7 +59,8 @@ export default function AuthContextProvider({ children }) {
             initialLoading,
             register,
             logout,
-            updateProfile
+            updateProfile,
+            setAuthUser
         }}>
             {children}
         </AuthContext.Provider>

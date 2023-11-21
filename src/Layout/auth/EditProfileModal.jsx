@@ -5,18 +5,18 @@ import Loading from "../../components/Loading";
 import { useRef } from "react";
 
 export default function EditProfileModal({
-    setIsOpen,
+    setIsOpen, setIsEditOpen,
     open
 }) {
     const [loading, setLoading] = useState(false);
     const [isHover, setIsHover] = useState(false);
-    // const { authUser,setAuthUser } = useAuth();
+    const { authUser, setAuthUser } = useAuth();
     const { user, setUser } = useAuth();
     const fileEl = useRef(null);
     const [input, setInput] = useState({
         profileImage: user?.profileImage,
-        firstName: user?.firstName,
-        lastName: user?.lastName,
+        firstName: user?.firstName || "",
+        lastName: user?.lastName || "",
         mobile: user?.mobile || ""
     });
     const handleChangeInput = (e) => {
@@ -35,15 +35,13 @@ export default function EditProfileModal({
             }
             console.log(formData);
             const res = await axios.patch("auth/editprofile", formData);
-            setProfileData({
-                ...profileData,
-                firstName: res.data.updateProfile.firstName,
-                lastName: res.data.updateProfile.lastName,
-                mobile: res.data.updateProfile.mobile,
-                profileImage: res.data.updateProfile.profileImage,
-            });
-            setUser(res.data.updateProfile);
+
+            setAuthUser(res.data.updateProfile);
+
             setIsOpen(false);
+            setIsEditOpen(false);
+            console.log("finish");
+
         } catch (err) {
             console.log(err);
         } finally {
@@ -59,7 +57,7 @@ export default function EditProfileModal({
                     <>
                         <div className="fixed inset-0 bg-black/70 z-[30]"></div>
                         <div className="fixed z-[30] min-h-full inset-0 flex justify-center items-center mt-20">
-                            <form className="bg-gray-200 p-5 w-[600px] rounded-xl" onSubmit={handleSubmitForm} >
+                            <div className="bg-gray-200 p-5 w-[600px] rounded-xl" >
                                 {loading && <Loading />}
                                 <div className="flex flex-col gap-5">
                                     <div className="text-2xl font-bold  flex justify-center">Edit Profile</div>
@@ -139,7 +137,7 @@ export default function EditProfileModal({
                                                     type="text"
                                                     placeholder="Last name"
                                                     name="lastName"
-                                                    value={input.firstName}
+                                                    value={input.lastName}
                                                     onChange={handleChangeInput}
                                                     className=" border-2 p-2 border-[#C18638] w-full outline-none rounded-md"
                                                 />
@@ -161,14 +159,14 @@ export default function EditProfileModal({
                                     </main>
 
                                     <div className="flex gap-3 ">
-                                        <button className="bg-[#C18638] hover:bg-[#BD7416] p-2 flex flex-1 text-white rounded-xl cursor-pointer justify-center">Submit</button>
+                                        <button className="bg-[#C18638] hover:bg-[#BD7416] p-2 flex flex-1 text-white rounded-xl cursor-pointer justify-center" onClick={handleSubmitForm}>Submit</button>
                                         <button className="bg-white p-2 rounded-xl flex flex-1 text-[#C18638] cursor-pointer justify-center" onClick={() => setIsOpen(false)}>Cancel</button>
                                     </div>
                                 </div>
                                 <div>
 
                                 </div>
-                            </form>
+                            </div>
                         </div>
 
                     </>

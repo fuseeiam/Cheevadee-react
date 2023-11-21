@@ -3,9 +3,10 @@ import { useAuth } from "../../hooks/use-auth";
 
 
 export default function RedirectIsAdmin({ children }) {
-  const { user } = useAuthh();
-  if (user.authUser?.userType !== "admin") {
-    return <Navigate to={`/`} />;
+  const { authUser } = useAuth();
+  console.log(authUser, "ADMIN");
+  if (authUser?.role !== "ADMIN") {
+    return <Navigate to={`/auth`} />;
   }
   return children;
 }

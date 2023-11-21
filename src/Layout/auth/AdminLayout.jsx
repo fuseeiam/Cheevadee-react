@@ -6,9 +6,9 @@ import SideBar from '../../components/adminUI/SideBar'
 
 export default function AdminLayout() {
     return (
-        <div>
+        <div >
             <AdminHeader />
-            <div className="flex w-full " style={{ height: "calc(vh - 60px)" }}>
+            <div className="flex w-full mt-[]" style={{ height: "calc(vh - 60px)" }}>
                 <SideBar />
                 <Outlet />
             </div>

@@ -48,6 +48,7 @@ const router = createBrowserRouter([
     {
         path: '/auth',
         element: (
+
             <Authenticated>
                 <AuthLayout />
             </Authenticated>
@@ -70,9 +71,12 @@ const router = createBrowserRouter([
     {
         path: "/auth/admin",
         element: (
+
             <RedirectIsAdmin>
                 <AdminLayout />
             </RedirectIsAdmin>
+
+
         ),
         children: [
             { path: "", element: <AdminPage /> },

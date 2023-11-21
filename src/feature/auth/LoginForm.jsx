@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import LoginButton from "./LoginButton";
 import LoginInput from "./LoginInput";
 import { useAuth } from "../../hooks/use-auth";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginForm() {
     const [input, setInput] = useState({
@@ -10,13 +11,18 @@ export default function LoginForm() {
         password: ''
     });
 
+    const navigate = useNavigate()
+
     const { login } = useAuth();
 
-    const handdleSubmitForm = e => {
+    const handdleSubmitForm = async e => {
         e.preventDefault();
-        login(input).catch(err => {
-            toast.error(err.response.data.message)
-        })
+        const user = await login(input)
+        console.log(user.role, "AAA");
+        if (user.role === "ADMIN") {
+            console.log("ADMIN");
+            navigate("/auth/admin")
+        }
     };
 
     return (
