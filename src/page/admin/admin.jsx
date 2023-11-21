@@ -8,7 +8,9 @@ export default function Admin() {
     return (
         <div>
             <SideBar />
-            <div className="absolute top-0 left-[20vw] w-[80vw] h-[100vh] bg-slate-500 flex flex-col gap-5 items-center justify-evenly "></div>
+            <div className="absolute top-0 left-[20vw] w-[80vw] h-[100vh] bg-slate-500 flex flex-col gap-5 items-center justify-evenly ">
+
+            </div>
         </div>
     );
 }
