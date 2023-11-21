@@ -2,7 +2,7 @@ import React from 'react';
 import { useAuth } from '../../hooks/use-auth';
 import SideBar from '../../components/adminUI/SideBar';
 
-export default function Admin() {
+export default function AdminPage() {
     const { user } = useAuth();
     console.log(user.firstName);
     return (

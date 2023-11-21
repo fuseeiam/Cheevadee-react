@@ -11,9 +11,16 @@ import PaymentPage from "../page/PaymentPage";
 import MyBooking from "../page/MyBooking";
 import Authenticated from "../feature/auth/Authenticated"
 import AuthLayout from "../Layout/auth/AuthLayout"
-import Admin from "../page/admin/admin";
 
 import RedirectIfAuthenticated from "../feature/auth/RedirectIfAuthenticated";
+import AdminPage from "../page/admin/AdminPage";
+import createRoomPage from "../page/admin/createRoomPage";
+import checkBookingPage from "../page/admin/checkBookingPage";
+import checkPaymentPage from "../page/admin/checkPaymentPage";
+import AdminLayout from "../Layout/auth/AdminLayout";
+import RedirectIsAdmin from "./redirect/RedirectIsAdmin";
+
+
 
 const router = createBrowserRouter([
     {
@@ -61,18 +68,25 @@ const router = createBrowserRouter([
         ]
     },
     {
-        path: '/auth/admin',
+        path: "/auth/admin",
         element: (
-            <Authenticated>
-                <AuthLayout />
-            </Authenticated>
-        ), children: [
-            { path: '', element: <Admin /> }
-        ]
-    },
+            <RedirectIsAdmin>
+                <AdminLayout />
+            </RedirectIsAdmin>
+        ),
+        children: [
+            { path: "", element: <AdminPage /> },
+            { path: "manageroom", element: <createRoomPage /> },
+            { path: "managebooking", element: <checkBookingPage /> },
+            { path: "managepayment", element: <checkPaymentPage /> }
 
+        ],
+    }
 ]);
+
 
 export default function Route() {
     return <RouterProvider router={router} />
 }
+
+

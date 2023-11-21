@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import BookingButton from "../../feature/Booking/BookingButton"
-import Dropdown from "../Dropdown";
+import checkBookingPage from "../../page/admin/checkBookingPage";
+import AdminDropdown from "../../page/admin/AdminDropdown";
 
-export default function UserHeader() {
+export default function AdminHeader() {
     return <header className="fixed w-screen flex justify-between text-light px-40 py-5 bg-[#21395D]">
         <Link to="/auth/admin">
             <div className="flex gap-2">
@@ -15,7 +15,10 @@ export default function UserHeader() {
             </div>
         </Link>
         <div className="flex gap-4">
-            <Dropdown />
+            <AdminDropdown />
+            <Link to="/auth/admin/managebooking">
+                <checkBookingPage />
+            </Link>
         </div>
 
     </header>
