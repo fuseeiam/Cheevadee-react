@@ -15,7 +15,7 @@ export default function BookingCardHistory({ detail }) {
 
     const [isEditBookingOpen, setIsEditBookingOpen] = useState(false);
     const [isCancelBookingOpen, setIsCancelBookingOpen] = useState(false);
-
+    console.log(detail);
 
     return (
         <div className='  bg-white w-full h-full rounded-md p-5 outline-none border border-gray-300  '>
@@ -64,17 +64,17 @@ export default function BookingCardHistory({ detail }) {
                             <span className='text-[#21395D] text-xl font-li'>Awaiting</span>
                         </div>
                         <div>
-
-                            {/* <div className='flex flex-col items-center'>
-                        <img src="/src/icons/circle-gray-correct-50.png" alt=" CHECKING" className='w-[40px] h-[40px]' />
-                        <span className='text-[#63635D] text-xl font-li'>Confirmed</span>
-                    </div> */}
-
-
-                            <div className='flex flex-col items-center'>
+                            {detail.paymentStatus === "PENDING" ? (<div className='flex flex-col items-center'>
+                                <img src="/src/icons/circle-gray-correct-50.png" alt=" CHECKING" className='w-[40px] h-[40px]' />
+                                <span className='text-[#63635D] text-xl font-li'>Confirmed</span>
+                            </div>) : (<div className='flex flex-col items-center'>
                                 <img src="/src/icons/circle-correct-50.png" alt="COMPLETED" className='w-[40px] h-[40px]' />
                                 <span className='text-[#21395D] text-xl font-li'>Confirmed</span>
-                            </div>
+                            </div>)}
+
+
+
+
                         </div>
 
 
@@ -86,7 +86,7 @@ export default function BookingCardHistory({ detail }) {
                     </div> */}
 
                             <div className='text-4xl font-semibold'>
-                                <h1>Your booking is <span className='text-[#C18638]'>Confirmed</span></h1>
+                                <h1>Your booking is <span className='text-[#C18638]'> {detail.bookingStatus}</span></h1>
                             </div>
 
                             <h2 className=' text-xl font-semibold mt-7'>When you arrive, present a photo ID that matches the guest name below.</h2>

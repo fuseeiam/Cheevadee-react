@@ -6,9 +6,9 @@ import SideBar from '../../components/adminUI/SideBar'
 
 export default function AdminLayout() {
     return (
-        <div >
+        <div className='flex flex-col h-screen'>
             <AdminHeader />
-            <div className="flex">
+            <div className="flex bg-slate-200 flex-1">
                 <SideBar />
                 <Outlet />
             </div>

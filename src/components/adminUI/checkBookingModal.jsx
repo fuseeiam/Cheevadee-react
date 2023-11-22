@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../../hooks/use-auth";
 
-export default function checkBookingModal({ setIsOpen, open }) {
+export default function CheckBookingModal({ setIsOpen, open }) {
 
     const { authUser } = useAuth();
     const [input, setInput] = useState({
