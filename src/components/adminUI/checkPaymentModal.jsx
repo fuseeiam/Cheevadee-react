@@ -20,22 +20,6 @@ export default function CheckPaymentModal({ open, setIsOpen, bookingObj }) {
             console.log(err);
         }
     }
-    // const [isOpen, setIsOpen] = useState(false);
-
-    // const dateData = new Date(data.createdAt);
-
-    // const date = new Intl.DateTimeFormat("en-AU", {
-    //     year: "numeric",
-    //     month: "long",
-    //     day: "numeric",
-    //     timeZone: "Asia/Bangkok",
-    // }).format(dateData);
-    // const time = new Intl.DateTimeFormat("en-AU", {
-    //     timeZone: "Asia/Bangkok",
-    //     hour: "numeric",
-    //     minute: "numeric",
-    //     second: "numeric",
-    // }).format(dateData);
 
     return (
         <>

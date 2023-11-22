@@ -13,10 +13,14 @@ import Authenticated from "../feature/auth/Authenticated"
 import AuthLayout from "../Layout/auth/AuthLayout"
 
 import RedirectIfAuthenticated from "../feature/auth/RedirectIfAuthenticated";
-import AdminPage from "../page/admin/AdminPage";
+import AdminPage from "../page/admin/CheckPaymentPage";
 
 import AdminLayout from "../Layout/auth/AdminLayout";
 import RedirectIsAdmin from "./redirect/RedirectIsAdmin";
+import CheckUserPage from "../page/admin/checkUserPage";
+import CheckBookingPage from "../page/admin/CheckBookingPage";
+import CheckPaymentPage from "../page/admin/CheckPaymentPage";
+import CreateRoomPage from "../page/admin/createRoomPage";
 
 
 
@@ -77,11 +81,11 @@ const router = createBrowserRouter([
 
         ),
         children: [
-            { path: "", element: <AdminPage /> },
-            // { path: "manageuser", element: <CheckUserPage /> },
-            // { path: "managebooking", element: <CheckBookingPage /> },
-            // { path: "managepayment", element: <CheckPaymentPage /> },
-            // { path: "manageroom", element: <CreateRoomPage /> }
+            // { path: "", element: <AdminPage /> },
+            { path: "manageuser", element: <CheckUserPage /> },
+            { path: "managebooking", element: <CheckBookingPage /> },
+            { path: "managepayment", element: <CheckPaymentPage /> },
+            { path: "manageroom", element: <CreateRoomPage /> }
         ],
     }
 ]);

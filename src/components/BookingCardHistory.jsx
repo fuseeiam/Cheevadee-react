@@ -71,10 +71,6 @@ export default function BookingCardHistory({ detail }) {
                                 <img src="/src/icons/circle-correct-50.png" alt="COMPLETED" className='w-[40px] h-[40px]' />
                                 <span className='text-[#21395D] text-xl font-li'>Confirmed</span>
                             </div>)}
-
-
-
-
                         </div>
 
 

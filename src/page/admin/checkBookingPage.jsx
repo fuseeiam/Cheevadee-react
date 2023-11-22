@@ -1,26 +1,35 @@
 import React from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react';
+import axios from '../../config/axios';
+import CheckBookingCard from '../../components/adminUI/CheckBookingCard';
 
-export default function checkBookingPage() {
+export default function CheckBookingPage() {
+
 
     const [allBooking, setAllBooking] = useState([]);
-    const bookingRoom = allBooking.filter(booking => (booking.bookingStatus))
 
-    useEffectEffect(() => {
-        axios
-            .get(`/booking/all-mybooking`)
-            .then(res => {
-                setAllBooking(res.data)
-            })
-            .catch(err => {
-                console.log(err);
-            });
+    useEffect(() => {
+        getBook();
     }, []);
 
-    return (
-        <div>
+    console.log('allBooking', allBooking);
+    const getBook = async () => {
+        const res = await axios
+            .get("/admin/checkbooking")
+            .then((res) => {
+                setAllBooking(res.data.allBooking);
+            })
+            .catch((error) => console.log(error));
+        return res;
+    };
 
+    return (
+        <div className="w-full h-full bg-slate-200 flex flex-col gap-5 flex-1 ">
+
+            {allBooking.map((el) => (
+                <CheckBookingCard key={el.id} bookingObj={el} />
+            ))}
         </div>
     )
 }

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import checkBookingPage from "../../page/admin/checkBookingPage";
+import checkBookingPage from "../../page/admin/CheckBookingPage";
 import AdminDropdown from "../../page/admin/AdminDropdown";
 
 export default function AdminHeader() {

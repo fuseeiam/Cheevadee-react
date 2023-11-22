@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function createRoomPage() {
+export default function CreateRoomPage() {
     return (
         <div>createRoomPage</div>
     )
