@@ -80,10 +80,10 @@ const router = createBrowserRouter([
         ),
         children: [
             { path: "", element: <AdminPage /> },
-            { path: "manageroom", element: <createRoomPage /> },
+            { path: "manageuser", element: <checkUserPage /> },
             { path: "managebooking", element: <checkBookingPage /> },
-            { path: "managepayment", element: <checkPaymentPage /> }
-
+            { path: "managepayment", element: <checkPaymentPage /> },
+            { path: "manageroom", element: <createRoomPage /> }
         ],
     }
 ]);

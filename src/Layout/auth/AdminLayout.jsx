@@ -8,7 +8,7 @@ export default function AdminLayout() {
     return (
         <div >
             <AdminHeader />
-            <div className="flex w-full mt-[]" style={{ height: "calc(vh - 60px)" }}>
+            <div className="flex">
                 <SideBar />
                 <Outlet />
             </div>
