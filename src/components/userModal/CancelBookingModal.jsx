@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../../hooks/use-auth";
 
-export default function CancelBookingModal({ setIsOpen, open }) {
+export default function CancelBookingModal({ setIsOpen, open, cancelBooking }) {
 
     const { authUser } = useAuth();
     const [input, setInput] = useState({
@@ -21,7 +21,7 @@ export default function CancelBookingModal({ setIsOpen, open }) {
                                     <div className="text-2xl font-bold  flex justify-center">Cancel Booking</div>
                                     <div>For cancellation, 100 percent of total amount will be charged. No amendment. Non-refundable. No show, 100 percent of total amount will be charged.</div>
                                     <div className="flex gap-3 ">
-                                        <button className="bg-[#C18638] hover:bg-[#BD7416] p-2 flex flex-1 text-white rounded-xl cursor-pointer justify-center">Submit</button>
+                                        <button className="bg-[#C18638] hover:bg-[#BD7416] p-2 flex flex-1 text-white rounded-xl cursor-pointer justify-center" onClick={() => { cancelBooking(); setIsOpen(false) }}>Submit</button>
                                         <button className="bg-white p-2 rounded-xl flex flex-1 text-[#C18638] cursor-pointer justify-center" onClick={() => setIsOpen(false)}>Cancel</button>
                                     </div>
                                 </div>

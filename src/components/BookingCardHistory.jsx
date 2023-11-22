@@ -1,5 +1,6 @@
 import { useState } from "react"
 import CancelBookingModal from "./userModal/CancelBookingModal"
+import axios from "../config/axios"
 // import EditBookingModal from "../components/userModal/EditBookingModal"
 
 
@@ -17,6 +18,13 @@ export default function BookingCardHistory({ detail }) {
     const [isCancelBookingOpen, setIsCancelBookingOpen] = useState(false);
     console.log(detail);
 
+    const cancelBooking = async () => {
+        try {
+            await axios.patch(`/user/cancelbooking/${detail.id}`)
+        } catch (err) {
+            console.log(err);
+        }
+    }
     return (
         <div className='  bg-white w-full h-full rounded-md p-5 outline-none border border-gray-300  '>
             <div className='flex justify-between '>
@@ -104,12 +112,12 @@ export default function BookingCardHistory({ detail }) {
                             className="bg-[#C18638] hover:bg-[#BD7416] text-white text-center font-li  h-15 px-20 py-4 rounded-md flex justify-center">
                             EDIT
                         </button> */}
-
-                        <button onClick={() => setIsCancelBookingOpen(true)}
+                        {detail.bookingStatus === "WAITING" ? (<button onClick={() => setIsCancelBookingOpen(true)}
                             className="bg-[#C18638] hover:bg-[#BD7416] text-white text-center font-li  h-15 px-20 py-4 mt-5 rounded-md flex justify-center">
                             CANCEL
-                        </button>
-                        <CancelBookingModal setIsOpen={setIsCancelBookingOpen} open={isCancelBookingOpen} />
+                        </button>) : ""}
+
+                        <CancelBookingModal setIsOpen={setIsCancelBookingOpen} open={isCancelBookingOpen} cancelBooking={cancelBooking} />
                     </div>
                 </div>
 
