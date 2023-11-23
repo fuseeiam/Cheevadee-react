@@ -14,6 +14,7 @@ import { useParams } from "react-router-dom";
 import axios from "../config/axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import Loading from "../components/Loading";
 
 export default function PaymentPage() {
     const { room, getRoomData, price } = useReserve();
@@ -24,13 +25,12 @@ export default function PaymentPage() {
 
     });
     const [file, setFile] = useState(null);
-
-
+    const [loading, setLoading] = useState(false);
 
     const handleSubmitBooking = async () => {
+        setLoading(true);
         try {
             const formData = new FormData();
-
 
             if (file) {
                 formData.append("arrival", input.arrival)
@@ -41,6 +41,7 @@ export default function PaymentPage() {
             }
             // formData.append('data', JSON.stringify({ bookArrival: input.arrival, bookDeparture: input.departure, roomId: roomId, paymentSlip: file, total_price: price }))
             const response = await axios.post('/booking/reserve', formData)
+            setLoading(false);
             setIsOpen(true)
 
         }
@@ -234,6 +235,7 @@ export default function PaymentPage() {
                                 >
                                     MAKE A BOOKING
                                 </button>
+                                {loading && <Loading />}
                             </div>
                             {/* // Open Modal reserve is successful,Please log in to check your Booking. */}
                             <Modal title="Reserve" open={isOpen} onClose={() => setIsOpen(false)}>

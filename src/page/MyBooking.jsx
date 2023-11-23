@@ -8,11 +8,12 @@ import BookingCardHistory from '../components/BookingCardHistory';
 
 
 export default function MyBooking() {
-    const [allBooking, setAllBooking] = useState([])
+    const [allBooking, setAllBooking] = useState([]);
+    const [toggle, setToggle] = useState(false);
     useEffect(() => {
         scrollToTop()
         axios.get("/booking/history").then(res => setAllBooking(res.data.bookingDetails)).catch(err => console.log(err))
-    }, [])
+    }, [toggle]);
 
 
 
@@ -59,7 +60,7 @@ export default function MyBooking() {
                         </div>
                     </div>
                     <div className='flex flex-col justify-center  gap-10'>
-                        {allBooking.map(el => <BookingCardHistory key={el.id} detail={el} />)}
+                        {allBooking.map(el => <BookingCardHistory key={el.id} detail={el} toggle={toggle} setToggle={setToggle} />)}
 
                     </div>
                 </div>

@@ -4,7 +4,7 @@ import axios from "../config/axios"
 // import EditBookingModal from "../components/userModal/EditBookingModal"
 
 
-export default function BookingCardHistory({ detail }) {
+export default function BookingCardHistory({ detail, toggle, setToggle }) {
     const arrival = detail.arrival.slice(0, 10)
     const departure = detail.departure.slice(0, 10)
     const calDate = (start, end) => {
@@ -21,6 +21,7 @@ export default function BookingCardHistory({ detail }) {
     const cancelBooking = async () => {
         try {
             await axios.patch(`/user/cancelbooking/${detail.id}`)
+            setToggle(!toggle)
         } catch (err) {
             console.log(err);
         }
@@ -117,7 +118,7 @@ export default function BookingCardHistory({ detail }) {
                             CANCEL
                         </button>) : ""}
 
-                        <CancelBookingModal setIsOpen={setIsCancelBookingOpen} open={isCancelBookingOpen} cancelBooking={cancelBooking} />
+                        <CancelBookingModal setIsOpen={setIsCancelBookingOpen} open={isCancelBookingOpen} cancelBooking={cancelBooking} toggle={toggle} setToggle={setToggle} />
                     </div>
                 </div>
 

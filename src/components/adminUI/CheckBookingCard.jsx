@@ -1,14 +1,11 @@
 import React from 'react'
-import Avatar from "../Avatar";
-import { useAuth } from "../../hooks/use-auth";
+import axios from '../../config/axios';
 import { useState } from 'react';
 import CheckBookingModal from './checkBookingModal';
 
-export default function CheckBookingCard({ bookingObj }) {
-    const { authUser } = useAuth();
+export default function CheckBookingCard({ bookingObj, toggle, setToggle }) {
 
     const [isOpen, setIsOpen] = useState(false);
-    console.log('bookingObj', bookingObj);
     const arrival = bookingObj.arrival.slice(0, 10)
     const departure = bookingObj.departure.slice(0, 10)
     const price = bookingObj.total_price
@@ -16,7 +13,9 @@ export default function CheckBookingCard({ bookingObj }) {
 
     const rejectedStatus = async () => {
         try {
+            console.log("reject booking");
             await axios.patch(`/admin/rejectbookingStatus/${bookingObj.id}`)
+            setToggle(!toggle)
         } catch (err) {
             console.log(err);
         }
@@ -55,8 +54,8 @@ export default function CheckBookingCard({ bookingObj }) {
 
                             <button onClick={() => setIsOpen(true)}
                                 className="bg-[#C18638] hover:bg-[#BD7416] text-white text-center font-li w-full  h-15 px-20 py-4 rounded-md flex justify-center mt-20">Approve</button>
-                            <CheckBookingModal open={isOpen} setIsOpen={setIsOpen} bookingObj={bookingObj} />
-                            <button onClick={() => rejectedStatus()}
+                            <CheckBookingModal open={isOpen} setIsOpen={setIsOpen} bookingObj={bookingObj} toggle={toggle} setToggle={setToggle} />
+                            <button onClick={rejectedStatus}
                                 className="border border-[#C18638] bg-[white] hover:bg-gray-100 text-[#BD7416] text-center font-li w-full h-15 px-20 py-4 mt-2.5 rounded-md flex justify-center">Reject</button>
                         </div>
                     ) : ''}

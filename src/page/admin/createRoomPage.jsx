@@ -9,12 +9,11 @@ import CreateRoomModal from './CreateRoomModal';
 export default function CreateRoomPage() {
 
     const [allRoom, setAllRoom] = useState([]);
-
     const [isOpen, setIsOpen] = useState(false)
-
+    const [toggle, setToggle] = useState(false);
     useEffect(() => {
         getRoom();
-    }, []);
+    }, [toggle]);
 
     console.log('allRoom', allRoom);
     const getRoom = async () => {
@@ -42,7 +41,7 @@ export default function CreateRoomPage() {
             </div>
 
             {allRoom.map((el) => (
-                <CreateRoomCard key={el.id} roomObj={el} />
+                <CreateRoomCard key={el.id} roomObj={el} toggle={toggle} setToggle={setToggle} />
             ))}
         </div>
     )

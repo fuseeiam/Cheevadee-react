@@ -5,7 +5,7 @@ import axios from "../../config/axios";
 
 
 
-export default function CheckPaymentModal({ open, setIsOpen, bookingObj }) {
+export default function CheckPaymentModal({ open, setIsOpen, bookingObj, toggle, setToggle }) {
     const { authUser } = useAuth();
     console.log(bookingObj);
     console.log(authUser);
@@ -16,6 +16,7 @@ export default function CheckPaymentModal({ open, setIsOpen, bookingObj }) {
     const completedStatus = async () => {
         try {
             await axios.patch(`/admin/paymentStatus/${bookingObj.id}`)
+            setToggle(!toggle)
         } catch (err) {
             console.log(err);
         }
@@ -36,7 +37,7 @@ export default function CheckPaymentModal({ open, setIsOpen, bookingObj }) {
                                     </div>
                                     <div className="text-xl font-bold">Price : {price} Baht</div>
                                     <div className="flex gap-3 ">
-                                        <button onClick={() => { completedStatus(); setIsOpen(false) }}
+                                        <button onClick={() => { completedStatus(); setIsOpen(false); }}
                                             className="bg-[#C18638] hover:bg-[#BD7416] p-2 flex flex-1 text-white rounded-xl cursor-pointer justify-center">Approve</button>
                                         <button className="bg-white p-2 rounded-xl flex flex-1 text-[#C18638] cursor-pointer justify-center" onClick={() => setIsOpen(false)}>Cancel</button>
                                     </div>

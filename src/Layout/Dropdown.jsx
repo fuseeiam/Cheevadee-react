@@ -29,9 +29,9 @@ export default function Dropdown() {
 
     return (
         <div className='relative' ref={dropDrownE1}>
-            <div className='cursor-pointer' onClick={() => setIsOpen(!isOpen)}>
+            {authUser && <div className='cursor-pointer' onClick={() => setIsOpen(!isOpen)}>
                 <Avatar src={authUser.profileImage} />
-            </div>
+            </div>}
             {isOpen && (
                 <div className="w-96 absolute bg-white right-0 translate-y-1 border rounded-lg shadow-xl">
                     <Link to={`/auth/booking/mybooking/${authUser.id}`} onClick={() => setIsOpen(false)}>

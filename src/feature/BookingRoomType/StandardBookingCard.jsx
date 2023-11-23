@@ -1,9 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { useAuth } from '../../hooks/use-auth';
+import { Navigate } from 'react-router-dom';
 
 export default function StandardBookingCard({ roomId, roomtype, picture, bed, view, roomSize, price }) {
   const [isOpen, setIsOpen] = useState(false);
+  const { authUser } = useAuth();
+  console.log(authUser);
 
   return (<div>
     <div className="bg-[#21395D] flex justify-center px-40 py-10">
@@ -98,11 +102,18 @@ export default function StandardBookingCard({ roomId, roomtype, picture, bed, vi
                   <span>tax & fees included</span>
                 </div>
               </div>
-              <Link to={"reserve/" + roomId}>
+
+              {authUser ? <Link to={"reserve/" + roomId}>
                 <button className="bg-[#C18638] hover:bg-[#BD7416] text-white text-xl py-4 px-10 rounded-md text-center font-li">
                   RESERVE
                 </button>
-              </Link>
+              </Link> :
+                <Link to={"/login"}>
+                  <button className="bg-[#C18638] hover:bg-[#BD7416] text-white text-xl py-4 px-10 rounded-md text-center font-li">
+                    RESERVE
+                  </button>
+                </Link>
+              }
             </div>
             <hr className="border-bg-[#63635D] mt-2.5 mr-2" />
             <div className="flex flex-col mt-5 text-sm font-light">

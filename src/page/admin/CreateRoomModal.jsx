@@ -7,11 +7,15 @@ export default function CreateRoomModal({ roomObj, open, setIsOpen }) {
     const handleChangeInput = (e) => {
         setInput({ ...input, [e.target.name]: e.target.value })
     }
+    console.log(input);
 
+    const [file, setFile] = useState(null);
+    console.log(file);
     const handleSumitForm = async (e) => {
         try {
             e.preventDefault()
             const formData = new FormData()
+            formData.append('picture', file)
             for (let key in input) {
                 if (input[key]) {
                     formData.append(`${key}`, input[key]);
@@ -42,7 +46,15 @@ export default function CreateRoomModal({ roomObj, open, setIsOpen }) {
                                         <div className='flex'>
 
                                             <img src={input.picture} alt="" className="py-5 w-[600px] h-[400px] relative" />
-                                            <input type="file" name='picture' value={input.picture} className='absolute bottom-[420px] left-[400px]' placeholder="Picture" />
+                                            <input type="file" name='picture' value={input.picture}
+                                                onChange={e => {
+                                                    if (e.target.files[0]) {
+                                                        setFile(e.target.files[0]);
+                                                    }
+                                                }}
+                                                className='absolute bottom-[420px] left-[400px]'
+                                                placeholder="Picture"
+                                            />
                                         </div>
                                     </div>
                                     <div className="flex py-1">

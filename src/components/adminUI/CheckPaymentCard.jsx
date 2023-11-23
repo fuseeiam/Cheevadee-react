@@ -1,13 +1,13 @@
 import React from 'react'
-
 import CheckPaymentModal from './checkPaymentModal';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from '../../config/axios';
 
-export default function CheckPaymentCard({ bookingObj }) {
+export default function CheckPaymentCard({ bookingObj, getBook, toggle, setToggle }) {
 
     const [isOpen, setIsOpen] = useState(false);
     console.log('bookingObj', bookingObj);
+
     const arrival = bookingObj.arrival.slice(0, 10)
     const departure = bookingObj.departure.slice(0, 10)
     const price = bookingObj.total_price
@@ -16,10 +16,14 @@ export default function CheckPaymentCard({ bookingObj }) {
     const rejectedStatus = async () => {
         try {
             await axios.patch(`/admin/rejectStatus/${bookingObj.id}`)
+            setToggle(!toggle)
         } catch (err) {
             console.log(err);
         }
     }
+
+    console.log(bookingObj.paymentStatus);
+
 
     return (
         <div className="p-5">
@@ -54,7 +58,7 @@ export default function CheckPaymentCard({ bookingObj }) {
 
                             <button onClick={() => setIsOpen(true)}
                                 className="bg-[#C18638] hover:bg-[#BD7416] text-white text-center font-li w-full  h-15 px-20 py-4 rounded-md flex justify-center mt-20">Approve</button>
-                            <CheckPaymentModal open={isOpen} setIsOpen={setIsOpen} bookingObj={bookingObj} />
+                            <CheckPaymentModal open={isOpen} setIsOpen={setIsOpen} bookingObj={bookingObj} toggle={toggle} setToggle={setToggle} />
                             <button onClick={() => rejectedStatus()}
                                 className="border border-[#C18638] bg-[white] hover:bg-gray-100 text-[#BD7416] text-center font-li w-full h-15 px-20 py-4 mt-2.5 rounded-md flex justify-center">Reject</button>
                         </div>)

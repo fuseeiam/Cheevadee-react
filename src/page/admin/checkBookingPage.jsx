@@ -6,13 +6,11 @@ import CheckBookingCard from '../../components/adminUI/CheckBookingCard';
 
 export default function CheckBookingPage() {
 
-
     const [allBooking, setAllBooking] = useState([]);
-
+    const [toggle, setToggle] = useState(false);
     useEffect(() => {
         getBook();
-    }, []);
-
+    }, [toggle]);
     console.log('allBooking', allBooking);
     const getBook = async () => {
         const res = await axios
@@ -28,7 +26,7 @@ export default function CheckBookingPage() {
         <div className="w-full h-full bg-slate-200 flex flex-col gap-5 flex-1 ">
 
             {allBooking.map((el) => (
-                <CheckBookingCard key={el.id} bookingObj={el} />
+                <CheckBookingCard key={el.id} bookingObj={el} toggle={toggle} setToggle={setToggle} />
             ))}
         </div>
     )

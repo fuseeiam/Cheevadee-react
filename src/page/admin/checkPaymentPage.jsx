@@ -4,20 +4,16 @@ import { useAuth } from '../../hooks/use-auth';
 import axios from '../../config/axios';
 import { useState, useEffect, } from 'react';
 import useDropdown from '../../hooks/use-dropdown';
-
-
 import CheckPaymentCard from '../../components/adminUI/CheckPaymentCard';
 
 export default function CheckPaymentPage() {
+    const [toggle, setToggle] = useState(false);
     const { user } = useAuth();
     console.log(user?.firstName);
-
     const [allBooking, setAllBooking] = useState([]);
-
     useEffect(() => {
         getBook();
-    }, []);
-
+    }, [toggle]);
     console.log('allBooking', allBooking);
     const getBook = async () => {
         const res = await axios
@@ -34,7 +30,7 @@ export default function CheckPaymentPage() {
         <div className="w-full h-full bg-slate-200 flex flex-col gap-5 flex-1 ">
 
             {allBooking.map((el) => (
-                <CheckPaymentCard key={el.id} bookingObj={el} />
+                <CheckPaymentCard key={el.id} bookingObj={el} toggle={toggle} setToggle={setToggle} />
             ))}
 
         </div>

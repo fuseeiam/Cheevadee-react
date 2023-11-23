@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import axios from '../../config/axios';
 
-export default function CreateRoomCard({ roomObj }) {
+export default function CreateRoomCard({ roomObj, toggle, setToggle }) {
     const [isOpen, setIsOpen] = useState(false);
     console.log(roomObj);
 
     const maintainStatus = async () => {
         try {
             await axios.patch(`/admin/maintaining/${roomObj.id}`)
+            setToggle(!toggle)
         } catch (err) {
             console.log(err);
         }
@@ -17,6 +18,7 @@ export default function CreateRoomCard({ roomObj }) {
     const reMaintainStatus = async () => {
         try {
             await axios.patch(`/admin/remaintaining/${roomObj.id}`)
+            setToggle(!toggle)
         } catch (err) {
             console.log(err);
         }
@@ -115,9 +117,11 @@ export default function CreateRoomCard({ roomObj }) {
                                 </div>
                             </div>
 
-                            {roomObj.isMaintaining === true ? (<button className="bg-[#C18638] hover:bg-[#BD7416] text-white text-xl py-4 px-10 rounded-md text-center font-li" onClick={() => reMaintainStatus()}>
+                            {roomObj.isMaintaining === true ? (<button className="bg-[#C18638] hover:bg-[#BD7416] text-white text-xl py-4 px-10 rounded-md text-center font-li"
+                                onClick={() => reMaintainStatus()}>
                                 No Ready
-                            </button>) : (<button className="bg-[#C18638] hover:bg-[#BD7416] text-white text-xl py-4 px-10 rounded-md text-center font-li" onClick={() => maintainStatus()}>
+                            </button>) : (<button className="bg-[#C18638] hover:bg-[#BD7416] text-white text-xl py-4 px-10 rounded-md text-center font-li"
+                                onClick={() => maintainStatus()}>
                                 Ready
                             </button>)}
 
