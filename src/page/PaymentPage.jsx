@@ -47,6 +47,9 @@ export default function PaymentPage() {
         }
         catch (error) {
             console.log(error);
+            alert(error.response.data.message)
+        } finally {
+            setLoading(false)
         }
     }
 

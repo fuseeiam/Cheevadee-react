@@ -10,11 +10,15 @@ import BookingCardHistory from '../components/BookingCardHistory';
 export default function MyBooking() {
     const [allBooking, setAllBooking] = useState([]);
     const [toggle, setToggle] = useState(false);
+
+    console.log("A");
     useEffect(() => {
+        console.log("1");
         scrollToTop()
         axios.get("/booking/history").then(res => setAllBooking(res.data.bookingDetails)).catch(err => console.log(err))
     }, [toggle]);
 
+    console.log("B");
 
 
     return (
